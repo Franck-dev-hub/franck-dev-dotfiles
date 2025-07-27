@@ -1,0 +1,49 @@
+# Ignore everything
+*
+
+# Except repo files
+!.gitignore
+!README.md
+!LICENSE
+
+# Zsh
+!.zshrc
+!help.sh
+
+# Config folder
+!.config/
+
+# Fastfetch
+!.config/fastfetch/
+!.config/fastfetch/**
+
+# Ghostty
+!.config/ghostty/
+!.config/ghostty/**
+
+# Hypr
+!.config/hypr/
+!.config/hypr/**
+
+# Mako
+!.config/mako/
+!.config/mako/**
+
+# Nvim
+!.config/nvim/
+!.config/nvim/**
+
+# Oh my posh
+!.config/ohmyposh/
+!.config/ohmyposh/**
+
+# Rofi
+!.config/rofi/
+!.config/rofi/**
+
+# Sublime text
+!.config/sublime-text/.gitignore
+
+# Waybar
+!.config/waybar/
+!.config/waybar/**

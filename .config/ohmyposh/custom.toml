@@ -1,0 +1,135 @@
+# Title terminal name
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+# Config version
+version = 3
+# Final command line
+final_space = false
+
+# ========== Colors ==========
+[palette]
+bg = '#1c1f24'
+arch = '#1793d1'
+path = '#7a99ff'
+cmd-done = '#55ff55'
+cmd-fail = '#ff5555'
+time = 'grey'
+secondary = 'yellow'
+transient = 'magenta'
+root-fg = '#ff0000'
+root-bg = '#00ffff'
+git-fg = '#0F0F1A'
+git-bg = '#1E90FF'
+git-fg-changed = '#0F0F1A'
+git-bg-changed = '#FFC107'
+git-fg-ahead = '#49416D'
+git-fg-behind = '#7A306C'
+git-fg-ah = '#E53935'
+
+# ========== Multiple commande line ==========
+[secondary_prompt]
+template = "<,p:secondary> > </><p:secondary,transparent></> "
+foreground = "black"
+background = "transparent"
+
+# ========== Transient mode ==========
+[transient_prompt]
+template = "<p:transient,transparent></> "
+foreground = "black"
+background = "transparent"
+
+# ========== Auto update ==========
+[upgrade]
+source = 'cdn'
+interval = '168h'
+auto = true
+notice = true
+
+# ========== Left blocks ==========
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+
+# ----- Arch -----
+  [[blocks.segments]]
+  leading_diamond = ''
+  trailing_diamond = ''
+  template = ' {{ if .SSHSession }} {{ end }} '
+  foreground = 'black'
+  background = 'p:arch'
+  type = 'session'
+  style = 'diamond'
+
+# ----- Root mode -----
+  [[blocks.segments]]
+  template = '  '
+  foreground = 'p:root-fg'
+  powerline_symbol = ''
+  background = 'p:root-bg'
+  type = 'root'
+  style = 'powerline'
+
+# ----- Folder path -----
+  [[blocks.segments]]
+  type = "path"
+  style = "diamond"
+  leading_diamond = '<transparent,background></>' 
+  trailing_diamond = ''
+  background = "p:path"
+  foreground = "black"
+  template = " {{ .Path }} "
+    [blocks.segments.properties]
+    folder_icon = ""
+    folder_separator_icon = "/"
+    home_icon = "\ueb06"
+
+  # ----- Git status -----
+  [[blocks.segments]]
+    leading_diamond = '<transparent,background></>'
+    trailing_diamond = ''
+    template = ' {{ .UpstreamIcon }}{{ .HEAD }}{{ if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} '
+    foreground = 'p:git-fg'
+    background = 'p:git-bg'
+    foreground_templates = [
+      '{{ if or (.Working.Changed) (.Staging.Changed) }}p:git-fg-changed{{ end }}',
+      '{{ if and (gt .Ahead 0) (gt .Behind 0) }}white{{ end }}',
+      '{{ if gt .Ahead 0 }}white{{ end }}'
+    ]
+    background_templates = [
+      '{{ if or (.Working.Changed) (.Staging.Changed) }}p:git-bg-changed{{ end }}',
+      '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:git-fg-ah{{ end }}',
+      '{{ if gt .Ahead 0 }}p:git-fg-ahead{{ end }}',
+      '{{ if gt .Behind 0 }}p:git-fg-behind{{ end }}'
+    ]
+    type = 'git'
+    style = 'diamond'
+    [blocks.segments.properties]
+      branch_template = '{{ trunc 25 .Branch }}'
+      fetch_status = true
+      fetch_upstream_icon = true
+
+
+# ----- Execution time -----
+  [[blocks.segments]]
+    leading_diamond = '<transparent,background></>'
+    trailing_diamond = ''
+    type = "executiontime"
+    style = "diamond"
+    template = "{{ .FormattedMs }}"
+    background = "#575656"
+    foreground = "#d6deeb"
+      [blocks.segments.properties]
+      always_enabled = true
+
+# ----- Last code success / fail -----
+  [[blocks.segments]]
+  leading_diamond = '<transparent,background></>'
+  trailing_diamond = ' '
+  template = ' {{ if gt .Code 0 }}{{ else }}{{ end }} '
+  foreground = 'black'
+  background = 'p:cmd-done'
+  background_templates = ['{{ if gt .Code 0 }}p:cmd-fail{{ end }}']
+  type = 'status'
+  style = 'diamond'
+
+    [blocks.segments.properties]
+    always_enabled = true

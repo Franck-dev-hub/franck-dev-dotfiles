@@ -1,0 +1,23 @@
+{
+"$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+"logo": {
+	"source": "~/.config/fastfetch/arch.txt",
+	"padding": {"top": 1, "right": 1, "bottom": 0, "left": 0},
+},
+"display": {
+	"separator": "   ",
+	"color": {"separator": "#888888", "title": "#00ffff"}
+},
+"modules": [
+	{"type": "title",		"keyColor": "cyan",},
+	{"type": "custom",   "format": "\u001b[90m─────────────  ────────────── "},
+	{"type": "os",			"key": "\u001b[31m OS      "},
+	{"type": "shell",		"key": "\u001b[32m Shell   "},
+	{"type": "wm",			"key": "\u001b[33m WinMgr  "},
+	{"type": "terminal",	"key": "\u001b[34m Terminal"},
+	{"type": "display",		"key": "\u001b[35m󰍹 Display "},
+	{"type": "media",		"key": "\u001b[36m󰎄 Media   "},
+	{"type": "datetime",	"key": "\u001b[37m󰃭 Date    "},
+	{"type": "custom",   "format": "\u001b[90m─────────────  ────────────── "},
+],
+}

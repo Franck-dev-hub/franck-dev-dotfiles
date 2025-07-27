@@ -1,0 +1,11 @@
+[
+   {
+       "keys": ["alt+t"],
+       "command": "terminus_open",
+       "args" : {
+           "cmd": "zsh",
+           "cwd": "${file_path:${folder}}",
+           "panel_name": "Terminus"
+       }
+   }
+]

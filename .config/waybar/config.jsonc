@@ -1,0 +1,108 @@
+{
+/* ========== General ========== */
+	"layer": "top",
+	"position": "top",
+
+/* ========== Modules position ========== */
+	"modules-left": [
+		"hyprland/workspaces",
+	],
+	"modules-center": [
+		"clock#date",
+		"custom/music",
+		"clock#time",
+	],
+	"modules-right": [
+		"pulseaudio",
+		"network",
+		"backlight",
+		"battery",
+		"tray",
+		"custom/lock",
+	],
+
+/* ========== Left Modules ========== */
+	"hyprland/workspaces": {
+		 "format": "{icon}",
+		 "format-icons": {
+				"default": ""
+		 },
+	},
+
+/* ========== Center Modules ========== */
+	"clock#date": {
+		"timezone": "Europe/Paris",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format": "  {:%d/%m/%Y}",
+	},
+	"custom/music": {
+		"format": "{}",
+		"return-type": "json",
+		"on-click": "playerctl -p spotify play-pause",
+		"on-click-right": "spotifatius toggle-liked",
+		"on-scroll-up": "playerctl -p spotify next",
+		"on-scroll-down": "playerctl -p spotify previous",
+		"exec": "spotifatius monitor",
+		"tooltip": false
+	},
+	"clock#time": {
+		"timezone": "Europe/Paris",
+		"format": "  {:%H:%M}"
+	},
+
+/* ========== Right Modules ========== */
+	"pulseaudio": {
+		"scroll-step": 1, 
+		"format": "{icon} {volume}%",
+		"format-muted": " ",
+		"format-icons": {
+			"default": ["", " ", " "]
+		},
+		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+		"on-click-right": "pavucontrol",
+	},
+	"network": {
+		"interface": "wlan0",
+
+		"format": "{ifname}",
+		"format-disconnected": "",
+
+		"format-wifi": " ",
+		"format-alt": "  {essid}",
+
+		"on-click-right": "nm-connection-editor",
+
+		"tooltip-format": "{signalStrength}%",
+		"tooltip-format-wifi": "{essid} {signalStrength}%",
+		"tooltip-format-disconnected": "No Connection",
+	},
+	"backlight": {
+		"device": "amdgpu_bl1",
+		"format": "{icon} {percent}%",
+	"format-alt": "{icon}",
+	"tooltip": false,
+		"format-icons": ["", "", "", "", "", "", "", "", ""]
+	},
+	"battery": {
+		"interval": 30,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": "󰂄 {capacity}%",
+		"format-plugged": " {capacity}%",
+		"format-alt": "{icon}",
+		"format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+	},
+	"tray": {
+		"icon-size": 21,
+		"spacing": 10
+	},
+	"custom/lock": {
+		"tooltip": false,
+		"on-click": "hyprlock &",
+		"on-click-right": "~/.config/hypr/scripts/powermenu.sh",
+		"format": "⏻ ",
+	},
+}
