@@ -10,6 +10,10 @@
 !.zshrc
 !help.sh
 
+# Packages Backup
+!.backups/
+!.backups/backup.sh
+
 # Config folder
 !.config/
 
