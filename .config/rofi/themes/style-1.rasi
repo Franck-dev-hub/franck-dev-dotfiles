@@ -14,7 +14,7 @@ configuration {
     background-alt2:#FFFFFF40;
     foreground:     #FFFFFFFF;
     selected:       #89B4fAFF;
-    active:         #98C379FF;
+    active:         #89FAB4FF;
     urgent:         #E06C75FF;
 }
 

@@ -10,7 +10,7 @@ configuration {
     background-alt: #282B31FF;
     foreground:     #FFFFFFFF;
     selected:       #89B4fAFF;
-    active:         #98C379FF;
+    active:         #89FAB4FF;
     urgent:         #E06C75FF;
 }
 
