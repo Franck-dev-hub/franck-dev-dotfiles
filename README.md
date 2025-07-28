@@ -55,15 +55,30 @@ cp .zshrc ~/
 cp -r .config/* ~/.config/
 ```
 
-### 4. Install Dependencies (Arch Linux)
+### 4. Install Dependencies
 
 <details>
-  <summary><strong>💠 Arch Linux 💠</strong></summary>
+  <summary><strong>💠🐧 Arch 🐧💠</strong></summary>
 
 ```bash
 sudo pacman -S zsh neovim waybar hyprland mako fastfetch rofi ttf-nerd-fonts-symbols oh-my-posh
 ```
 
+</details>
+<details>
+  <summary><strong>🌀🐧 Debian 🐧🌀</strong></summary>
+
+```bash
+sudo apt update
+sudo apt install zsh neovim waybar hyprland mako-bin fastfetch rofi fonts-nerd-fonts oh-my-posh
+```
+
+</details>
+<details><summary><strong>🐾🐧 Fedora 🐧🐾</strong></summary>
+  
+```bash
+sudo dnf install zsh neovim waybar hyprland mako fastfetch rofi nerd-fonts-ttf oh-my-posh
+```
 </details>
 </details>
 
