@@ -97,4 +97,5 @@ This project is licensed under the **GNU GPL v3.0**. See the LICENSE file for mo
 
 ## 💖 Acknowledgments
 
-Big thanks to the Linux community and everyone who shares their knowledge and tools.
+Big thanks to the Linux community and everyone who shares their knowledge and tools.<br>
+[![YouTube](https://img.shields.io/badge/YT-Bread_on_Penguins-555555?logo=youtube&logoColor=white&labelColor=FF0000)](https://www.youtube.com/@BreadOnPenguins)
