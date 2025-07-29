@@ -79,8 +79,8 @@
 	"backlight": {
 		"device": "amdgpu_bl1",
 		"format": "{icon} {percent}%",
-	"format-alt": "{icon}",
-	"tooltip": false,
+		"format-alt": "{icon}",
+		"tooltip": false,
 		"format-icons": ["", "", "", "", "", "", "", "", ""]
 	},
 	"battery": {
@@ -101,8 +101,7 @@
 	},
 	"custom/lock": {
 		"tooltip": false,
-		"on-click": "hyprlock &",
-		"on-click-right": "~/.config/hypr/scripts/powermenu.sh",
+		"on-click": "${HOME}/.config/hypr/scripts/powermenu.sh",
 		"format": "⏻ ",
 	},
 }
