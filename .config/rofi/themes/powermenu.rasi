@@ -7,24 +7,23 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-    /* Resolution : 1920x1080 */
     mainbox-spacing:             100px;
     mainbox-margin:              150px 400px;
     message-margin:              0px 350px;
     message-padding:             15px;
     message-border-radius:       15px;
-    listview-spacing:            50px;
-    element-padding:             35px 40px;
-    element-border-radius:       20px;
+    listview-spacing:            25px;
+    element-padding:             24px 40px;
+    element-border-radius:       21px;
 
-    prompt-font:                 "Maple Mono 72";
-    textbox-font:                "Maple Mono 12";
-    element-text-font:           "feather 64";
+    prompt-font:                 "JetBrains Mono 48";
+    textbox-font:                "JetBrains Mono 18";
+    element-text-font:           "JetBrains Mono 12";
 
     background-window:           #00000080;
     background-normal:           #FFFFFF20;
-    background-selected:         #89B4fAFF;
-    foreground-normal:           #FFFFFFFF;
+    background-selected:         #89B4fAEE;
+    foreground-normal:           #FFFFFF80;
     foreground-selected:         #FFFFFFFF;
 }
 
@@ -62,7 +61,7 @@ prompt {
     enabled:                     true;
     font:                        var(prompt-font);
     background-color:            transparent;
-    text-color:                  var(foreground-normal);
+    text-color:                  var(foreground-selected);
 }
 
 /*****----- Message -----*****/
@@ -72,7 +71,7 @@ message {
     padding:                     var(message-padding);
     border-radius:               var(message-border-radius);
     background-color:            var(background-normal);
-    text-color:                  var(foreground-normal);
+    text-color:                  var(foreground-selected);
 }
 textbox {
     font:                        var(textbox-font);
