@@ -82,6 +82,8 @@ alias gcan="git commit --amend --no-edit"
 alias gp="git push"
 alias gpf="git push -f"
 alias gcanf="git commit --amend --no-edit && git push -f"
+alias gd="git diff"
+alias gds"git diff --stat"
 
 # --- Holberton (C/Valgrind) ---
 alias gcch="gcc -Wall -pedantic -Werror -Wextra -std=gnu89"

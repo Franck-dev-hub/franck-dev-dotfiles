@@ -33,6 +33,8 @@ gcan	-> git commit --amend --no-edit
 gp	-> git push
 gpf	-> git push -f
 gcanf	-> git commit --amend --no-edit && git push -f
+gd	-> git diff
+gds	-> git diff --stat
 EOF
 
 echo -e "${BLUE}=== Holberton (C/Valgrind) ===${RESET}"
