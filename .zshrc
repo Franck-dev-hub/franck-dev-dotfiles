@@ -61,8 +61,6 @@ if [ -f ~/.env ]; then
     set +a
 fi
 
-fastfetch --config ~/.config/fastfetch/start.jsonc
-
 # ===================== Aliases =====================
 # --- Vim ---
 alias n="nvim"
@@ -95,7 +93,6 @@ alias lov="love ./"
 # --- Fastfetch ---
 alias ff="fastfetch"
 alias ffm="fastfetch --config ${HOME}/.config/fastfetch/start.jsonc"
-alias clear="clear && ffm"
 
 # --- Configs ---
 alias zshrc="n ${HOME}/.zshrc"

@@ -50,7 +50,6 @@ echo -e "${BLUE}=== Fastfetch ===${RESET}"
 cat <<EOF
 ff	-> fastfetch
 ffm	-> fastfetch --config ${HOME}/.config/fastfetch/start.jsonc
-clear	-> clear && ffm
 EOF
 
 echo -e "${BLUE}=== Configs ===${RESET}"
