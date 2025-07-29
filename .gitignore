@@ -28,6 +28,7 @@
 # Hypr
 !.config/hypr/
 !.config/hypr/**
+hyprpaper.conf
 
 # Mako
 !.config/mako/
