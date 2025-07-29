@@ -5,22 +5,22 @@ dir="$HOME/.config/rofi/themes"
 theme='powermenu'
 
 # Options
-shutdown=''
-reboot=''
-lock=''
-suspend=''
-hibernate=''
-logout=''
+shutdown='  Shutdown'
+reboot='  Reboot'
+lock='  Lock'
+suspend=' Suspend'
+hibernate=' Hibernate'
+logout='  Logout'
 yes=''
 no='✘'
 
 # Rofi CMD
 rofi_cmd() {
     rofi -dmenu \
-    -p "Choose your destiny ${USER}" \
-    -mesg "Pick your power move" \
-    -theme ${dir}/${theme}.rasi
-    }
+    -p "󰮯 Choose your destiny ${USER}" \
+    -mesg "⚡ Pick your power move ✨" \
+    -theme "${dir}/${theme}.rasi"
+}
 
 # Confirmation CMD
 confirm_cmd() {
