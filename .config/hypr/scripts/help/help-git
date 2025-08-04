@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Colors
+BLACK="\e[30m"
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+BLUE="\e[34m"
+MAGENTA="\e[35m"
+CYAN="\e[36m"
+GREY="\e[37m"
+RESET="\e[0m"
+
+echo -e "${BLUE}=== Git/Github ===${RESET}"
+cat <<EOF
+gs	-> clear && git status
+ga	-> git add
+gc	-> git commit
+gac	-> git add . && git commit
+gca	-> git commit --amend
+gcan	-> git commit --amend --no-edit
+gp	-> git push
+gpf	-> git push -f
+gcanf	-> git commit --amend --no-edit && git push -f
+gd	-> git diff
+gds	-> git diff --stat
+EOF

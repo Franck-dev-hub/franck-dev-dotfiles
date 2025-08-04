@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Colors
+BLACK="\e[30m"
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+BLUE="\e[34m"
+MAGENTA="\e[35m"
+CYAN="\e[36m"
+GREY="\e[37m"
+RESET="\e[0m"
+
+echo -e "${BLUE}=== Vim ===${RESET}"
+cat <<EOF
+sudo ufw enable/disable		-> On/off firewall
+sudo ufw status			-> Display status
+sudo ufw status verbose		-> Display detailled status
+sudo ufw allow <port>		-> Autorise a port
+sudo ufw deny <port>		-> Block a port
+sudo ufw allow from <IP>	-> Autorise an specific IP
+sudo ufw deny from <IP>		-> Block an specific IP
+sudo ufw delete allow <port>	-> Delete a rule that allow a port
+sudo ufw reset			-> Reset ufw
+EOF

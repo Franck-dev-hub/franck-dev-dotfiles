@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Colors
+BLACK="\e[30m"
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+BLUE="\e[34m"
+MAGENTA="\e[35m"
+CYAN="\e[36m"
+GREY="\e[37m"
+RESET="\e[0m"
+
+echo -e "${BLUE}=== Helpers ===${RESET}"
+cat <<EOF
+help		-> Main help
+help-blue	-> Bluetooth help
+help-config	-> Configuration files
+help-firewall	-> Firewall help
+help-git	-> Git help
+help-terminal	-> Misc terminal commands
+help-webcam	-> Webcam help
+help-wifi	-> Wifi help
+EOF

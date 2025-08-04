@@ -97,6 +97,11 @@ alias lov="love ./"
 alias ff="fastfetch"
 alias ffm="fastfetch --config ${HOME}/.config/fastfetch/start.jsonc"
 
+
+# --- Webcam ---
+alias webcam="gst-launch-1.0 v4l2src device=/dev/video0 ! image/jpeg,width=1280,height=720 ! jpegdec ! videoconvert ! autovideosink"
+alias qr="zbarcam"
+
 # --- Configs ---
 alias zshrc="n ${HOME}/.zshrc"
 alias cursor="find /usr/share/icons ${HOME}/.local/share/icons ${HOME}/.icons -type d -name "cursors""
@@ -108,7 +113,13 @@ alias notif="n ${HOME}/.config/mako/config"
 alias custom-launcher="n ${HOME}/.config/hypr/scripts/rofi-file-manager.sh"
 alias display="nwg-look"
 alias wall="${HOME}/.config/hypr/scripts/random_wallpaper.sh"
-alias help="${HOME}/help.sh"
-alias webcam="gst-launch-1.0 v4l2src device=/dev/video0 ! image/jpeg,width=1280,height=720 ! jpegdec ! videoconvert ! autovideosink
-"
-alias qr="zbarcam"
+
+# --- Help ---
+alias help="clear && ${HOME}/.config/hypr/scripts/help/help"
+alias help-blue="clear && ${HOME}/.config/hypr/scripts/help/help-blue"
+alias help-config="clear && ${HOME}/.config/hypr/scripts/help/help-config"
+alias help-firewall="clear && ${HOME}/.config/hypr/scripts/help/help-firewall"
+alias help-git="clear && ${HOME}/.config/hypr/scripts/help/help-git"
+alias help-terminal="clear && ${HOME}/.config/hypr/scripts/help/help-terminal"
+alias help-webcam="clear && ${HOME}/.config/hypr/scripts/help/help-webcam"
+alias help-wifi="clear && ${HOME}/.config/hypr/scripts/help/help-wifi"

@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Colors
+BLACK="\e[30m"
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+BLUE="\e[34m"
+MAGENTA="\e[35m"
+CYAN="\e[36m"
+GREY="\e[37m"
+RESET="\e[0m"
+
+echo -e "${BLUE}=== bluetoothctl (TUI) ===${RESET}"
+cat <<EOF
+bluetoothctl	-> Enter TUI mode
+power on/off	-> On/off bluetooth
+scan on/off	-> On/off device search
+devices		-> List all known devices
+paired-devices	-> List all appaired devices
+pair <MAC>	-> Appair a device
+connect <MAC>	-> Connect to a device
+disconnect <MAC>-> Disconnect a device
+remove <MAC>	-> Delete a device appaired
+exit		-> Quit bluetoothctl
+EOF
+
+echo -e "${BLUE}=== blueman-manager (GUI) ===${RESET}"
+cat <<EOF
+blueman-manager -> Open blueman GUI
+EOF
+
+echo -e "${BLUE}=== systemctl (TUI) ===${RESET}"
+echo -e "${GREY}Set on and activate bluetooth system${RESET}"
+echo -e "${YELLOW}sudo systemctl enable --now bluetooth.service${RESET}"
+
+echo -e "${GREY}Check status${RESET}"
+echo -e "${YELLOW}systemctl status bluetooth.service${RESET}"
