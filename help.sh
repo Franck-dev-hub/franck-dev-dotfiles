@@ -28,6 +28,7 @@ cat <<EOF
 gs	-> clear && git status
 ga	-> git add
 gc	-> git commit
+gac	-> git add . && git commit
 gca	-> git commit --amend
 gcan	-> git commit --amend --no-edit
 gp	-> git push
@@ -63,7 +64,10 @@ lock	-> n ${HOME}/.config/hypr/hyprlock.conf
 idle	-> n ${HOME}/.config/hypr/hypridle.conf
 bar	-> n ${HOME}/.config/waybar/config.jsonc
 notif	-> n ${HOME}/.config/mako/config
+custom-launcher -> n ${HOME}/.config/hypr/scripts/rofi-file-manager.sh
 display	-> nwg-look
 wall	-> ${HOME}/.config/hypr/scripts/random_wallpaper.sh
 help	-> ${HOME}/help.sh
+webcam	-> gst-launch-1.0 v4l2src device=/dev/video0 ! image/jpeg,width=1280,height=720 ! jpegdec ! videoconvert ! autovideosink
+qr	-> zbarcam
 EOF
