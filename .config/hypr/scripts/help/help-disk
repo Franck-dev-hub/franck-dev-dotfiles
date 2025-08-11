@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Colors
+BLACK="\e[30m"
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+BLUE="\e[34m"
+MAGENTA="\e[35m"
+CYAN="\e[36m"
+GREY="\e[37m"
+RESET="\e[0m"
+
+echo -e "${BLUE}=== Disk Information ===${RESET}"
+cat <<EOF
+lsblk		-> List block devices
+lsblk -f	-> List block devices with filesystem info
+fdisk -l	-> List disk partitions
+blkid		-> Show block device attributes
+df -h		-> Show disk space usage
+du -h		-> Show directory space usage
+EOF
+
+echo -e "${BLUE}=== Disk Management ===${RESET}"
+cat <<EOF
+sudo fdisk /dev/sdX	-> Partition disk
+sudo parted /dev/sdX	-> Advanced partitioning
+sudo gdisk /dev/sdX	-> GPT partitioning
+sudo cfdisk /dev/sdX	-> Interactive partitioning
+EOF
+
+echo -e "${BLUE}=== Filesystem Operations ===${RESET}"
+cat <<EOF
+sudo mkfs.ext4 /dev/sdX1	-> Format partition as ext4
+sudo mkfs.fat /dev/sdX1		-> Format partition as FAT32
+sudo mkfs.ntfs /dev/sdX1	-> Format partition as NTFS
+sudo mount /dev/sdX1 /mnt	-> Mount partition
+sudo umount /mnt		-> Unmount partition
+EOF

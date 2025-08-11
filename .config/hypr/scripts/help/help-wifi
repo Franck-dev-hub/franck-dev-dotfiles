@@ -18,6 +18,7 @@ nmcli device status	-> List network interfaces
 nmcli device wifi list	-> List available network
 nmcli device wifi connect <SSID> password <pwd> -> Connect to a network
 nmcli connection show	-> Display configured networks
+nmcli connection modify <wifi> connection.autoconnect yes -> Autoconnect wifi
 EOF
 
 echo -e "${BLUE}===  (ITUI) ===${RESET}"

@@ -14,10 +14,15 @@ RESET="\e[0m"
 echo -e "${BLUE}=== Helpers ===${RESET}"
 cat <<EOF
 help		-> Main help
+help-battery	-> Battery and power management
 help-blue	-> Bluetooth help
 help-config	-> Configuration files
+help-disk	-> Disk and storage management
+help-docker	-> Docker commands
 help-firewall	-> Firewall help
 help-git	-> Git help
+help-hardware	-> Hardware information
+help-monitor	-> Monitor and display settings
 help-terminal	-> Misc terminal commands
 help-webcam	-> Webcam help
 help-wifi	-> Wifi help

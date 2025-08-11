@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Colors
+BLACK="\e[30m"
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+BLUE="\e[34m"
+MAGENTA="\e[35m"
+CYAN="\e[36m"
+GREY="\e[37m"
+RESET="\e[0m"
+
+echo -e "${BLUE}=== Hardware Infos ===${RESET}"
+cat <<EOF
+sudo dmidecode -s system-serial-number -> Display serial number
+htop	-> Interactive process viewer
+EOF
+
+echo -e "${BLUE}=== USB Devices ===${RESET}"
+cat <<EOF
+lsusb			-> List USB devices
+lsusb -v		-> Detailed USB device info
+dmesg | grep -i usb	-> USB kernel messages
+EOF
+
+echo -e "${BLUE}=== Hardware Monitoring ===${RESET}"
+cat <<EOF
+sensors		-> Show sensor readings
+sudo hwmon	-> Hardware monitoring
+sudo dmidecode	-> DMI/SMBIOS information
+EOF
+
+echo -e "${BLUE}=== Audio Hardware ===${RESET}"
+cat <<EOF
+aplay -l		-> List audio playback devices
+arecord -l		-> List audio recording devices
+pactl list short sinks	-> List PulseAudio sinks
+pactl list short sources-> List PulseAudio sources
+EOF

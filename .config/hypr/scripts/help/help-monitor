@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Colors
+BLACK="\e[30m"
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+BLUE="\e[34m"
+MAGENTA="\e[35m"
+CYAN="\e[36m"
+GREY="\e[37m"
+RESET="\e[0m"
+
+echo -e "${BLUE}=== Monitor Information ===${RESET}"
+cat <<EOF
+xrandr			-> List displays and resolutions
+xrandr --listmonitors	-> List connected monitors
+EOF
+
+echo -e "${BLUE}=== Monitor Power ===${RESET}"
+cat <<EOF
+xrandr --output HDMI-1 --off		-> Turn off display
+xrandr --output HDMI-1 --auto		-> Turn on display
+EOF

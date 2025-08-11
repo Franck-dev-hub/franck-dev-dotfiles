@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Colors
+BLACK="\e[30m"
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+BLUE="\e[34m"
+MAGENTA="\e[35m"
+CYAN="\e[36m"
+GREY="\e[37m"
+RESET="\e[0m"
+
+echo -e "${BLUE}=== Docker Images ===${RESET}"
+cat <<EOF
+docker images			-> List all images
+docker rmi <image>		-> Remove image
+docker pull <image>		-> Pull image from registry
+docker build -t <name> .	-> Build image from Dockerfile
+docker save <image> > file.tar	-> Save image to tar file
+docker load < file.tar		-> Load image from tar file
+EOF
+
+echo -e "${BLUE}=== Docker Containers ===${RESET}"
+cat <<EOF
+docker ps			-> List running containers
+docker ps -a			-> List all containers
+docker run <image>		-> Run container
+docker start <container>	-> Start stopped container
+docker stop <container>		-> Stop running container
+docker restart <container>	-> Restart container
+docker rm <container>		-> Remove container
+docker logs <container>		-> Show container logs
+docker exec -it <container> bash-> Enter container shell
+EOF
+
+echo -e "${BLUE}=== Docker System ===${RESET}"
+cat <<EOF
+docker system df	-> Show docker disk usage
+docker system prune	-> Remove unused data
+docker volume ls	-> List volumes
+docker network ls	-> List networks
+docker info		-> Show docker system info
+EOF
+
+echo -e "${BLUE}=== Docker Compose ===${RESET}"
+cat <<EOF
+docker-compose up	-> Start services
+docker-compose down	-> Stop services
+docker-compose ps	-> List services
+docker-compose logs	-> Show service logs
+docker-compose build	-> Build services
+EOF
+
+echo -e "${BLUE}=== Docker Registry ===${RESET}"
+cat <<EOF
+docker login		-> Login to registry
+docker logout		-> Logout from registry
+docker push <image>	-> Push image to registry
+docker search <term>	-> Search images in registry
+EOF
