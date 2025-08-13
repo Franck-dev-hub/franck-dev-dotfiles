@@ -5,11 +5,11 @@
 
 /* ========== Modules position ========== */
 	"modules-left": [
-		"hyprland/workspaces",
+		"hyprland/workspaces"
 	],
 	"modules-center": [
 		"clock",
-		"custom/music",
+		"custom/music"
 	],
 	"modules-right": [
 		"pulseaudio",
@@ -17,7 +17,7 @@
 		"backlight",
 		"battery",
 		"tray",
-		"custom/lock",
+		"custom/lock"
 	],
 
 /* ========== Left Modules ========== */
@@ -35,7 +35,7 @@
 			"9": "󰲰",
 			"10": "󰿬",
 			"default": ""
-		 },
+		 }
 	},
 
 /* ========== Center Modules ========== */
@@ -65,23 +65,20 @@
 			"default": ["", " ", " "]
 		},
 		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-		"on-click-right": "pavucontrol",
+		"on-click-right": "pavucontrol"
 	},
 	"network": {
-		"interface": "wlan0",
-
 		"format": "{ifname}",
 		"format-disconnected": "",
 
 		"format-wifi": " ",
 		"format-alt": "  {essid}",
 
-		"on-click": "nmtui",
 		"on-click-right": "nm-connection-editor",
 
 		"tooltip-format": "{signalStrength}%",
 		"tooltip-format-wifi": "{essid} {signalStrength}%",
-		"tooltip-format-disconnected": "No Connection",
+		"tooltip-format-disconnected": "No Connection"
 	},
 	"backlight": {
 		"device": "amdgpu_bl1",
@@ -109,6 +106,6 @@
 	"custom/lock": {
 		"tooltip": false,
 		"on-click": "${HOME}/.config/hypr/scripts/powermenu.sh",
-		"format": "⏻ ",
-	},
+		"format": "⏻ "
+	}
 }
