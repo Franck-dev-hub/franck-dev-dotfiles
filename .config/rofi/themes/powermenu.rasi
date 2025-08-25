@@ -12,7 +12,7 @@ configuration {
     message-margin:              0px 350px;
     message-padding:             15px;
     message-border-radius:       15px;
-    listview-spacing:            25px;
+    listview-spacing:            20px;
     element-padding:             24px 40px;
     element-border-radius:       21px;
 
@@ -94,7 +94,7 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
+
     spacing:                     var(listview-spacing);
     background-color:            transparent;
     cursor:                      "default";
