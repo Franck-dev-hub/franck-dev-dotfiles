@@ -14,7 +14,7 @@ border-radius=5
 max-icon-size=64
 
 # Position
-anchor=top-right
+anchor=top-center
 margin=10,10
 layer=overlay
 output=*
