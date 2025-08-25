@@ -20,6 +20,9 @@ idle	-> n ${HOME}/.config/hypr/hypridle.conf
 bar	-> n ${HOME}/.config/waybar/config.jsonc
 notif	-> n ${HOME}/.config/mako/config
 custom-launcher -> n ${HOME}/.config/hypr/scripts/rofi-file-manager.sh
+display	-> nwg-look
+tableur	-> n /usr/share/sc-im/themes/f-seeker.sc
 wall	-> ${HOME}/.config/hypr/scripts/random_wallpaper.sh
 help	-> ${HOME}/help.sh
+
 EOF

@@ -21,6 +21,7 @@ cat <<EOF
 ll	-> la -Alh
 ls	-> lsd --group-dirs first
 fibo	-> ${HOME}/.config/waybar/scripts/fibo.sh
+tab	-> sc-im -l /usr/share/sc-im/themes/f-seeker.sc
 cursor	-> find /usr/share/icons ${HOME}/.local/share/icons ${HOME}/.icons -type d -name "cursors"
 display	-> nwg-look
 EOF
