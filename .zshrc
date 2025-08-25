@@ -61,6 +61,9 @@ if [ -f ~/.env ]; then
     set +a
 fi
 
+# Env var for lcc
+export PATH=$PATH:/opt/gbdk/bin
+
 # ===================== Aliases =====================
 # --- Vim ---
 alias n="nvim"
@@ -72,6 +75,7 @@ alias vim="nvim"
 alias ll="ls -Alh"
 alias ls="lsd --group-dirs first"
 alias fibo="${HOME}/.config/waybar/scripts/fibo.sh"
+alias tab="sc-im -l /usr/share/sc-im/themes/f-seeker.sc"
 
 # --- Git/Github ---
 alias gs="clear && git status"
@@ -88,7 +92,8 @@ alias gds="git diff --stat"
 
 # --- Holberton (C/Valgrind) ---
 alias gcch="gcc -Wall -pedantic -Werror -Wextra -std=gnu89"
-alias val="clear && valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./a.out"
+alias val="clear && valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all"
+alias cbetty="clear && betty *"
 
 # --- Love2D ---
 alias lov="love ./"
@@ -96,7 +101,6 @@ alias lov="love ./"
 # --- Fastfetch ---
 alias ff="fastfetch"
 alias ffm="fastfetch --config ${HOME}/.config/fastfetch/start.jsonc"
-
 
 # --- Webcam ---
 alias webcam="gst-launch-1.0 v4l2src device=/dev/video0 ! image/jpeg,width=1280,height=720 ! jpegdec ! videoconvert ! autovideosink"
@@ -112,6 +116,7 @@ alias bar="n ${HOME}/.config/waybar/config.jsonc"
 alias notif="n ${HOME}/.config/mako/config"
 alias custom-launcher="n ${HOME}/.config/hypr/scripts/rofi-file-manager.sh"
 alias display="nwg-look"
+alias tableur="n /usr/share/sc-im/themes/f-seeker.sc"
 alias wall="${HOME}/.config/hypr/scripts/random_wallpaper.sh"
 
 # --- Help ---
