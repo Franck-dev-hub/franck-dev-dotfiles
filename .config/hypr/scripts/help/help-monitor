@@ -11,6 +11,7 @@ CYAN="\e[36m"
 GREY="\e[37m"
 RESET="\e[0m"
 
+echo -e "${YELLOW}=== ~/.config/hypr/scripts/help/help-monitor ===${RESET}"
 echo -e "${BLUE}=== Monitor Information ===${RESET}"
 cat <<EOF
 xrandr			-> List displays and resolutions

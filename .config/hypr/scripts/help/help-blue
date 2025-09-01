@@ -11,6 +11,7 @@ CYAN="\e[36m"
 GREY="\e[37m"
 RESET="\e[0m"
 
+echo -e "${YELLOW}=== ~/.config/hypr/scripts/help/help-blue ===${RESET}"
 echo -e "${BLUE}=== bluetoothctl (TUI) ===${RESET}"
 cat <<EOF
 bluetoothctl	-> Enter TUI mode

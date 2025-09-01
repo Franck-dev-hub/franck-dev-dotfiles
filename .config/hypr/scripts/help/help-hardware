@@ -11,6 +11,7 @@ CYAN="\e[36m"
 GREY="\e[37m"
 RESET="\e[0m"
 
+echo -e "${YELLOW}=== ~/.config/hypr/scripts/help/help-hardware ===${RESET}"
 echo -e "${BLUE}=== Hardware Infos ===${RESET}"
 cat <<EOF
 sudo dmidecode -s system-serial-number -> Display serial number

@@ -11,6 +11,7 @@ CYAN="\e[36m"
 GREY="\e[37m"
 RESET="\e[0m"
 
+echo -e "${YELLOW}=== ~/.config/hypr/scripts/help/help-config ===${RESET}"
 echo -e "${BLUE}=== Configs files ===${RESET}"
 cat <<EOF
 zshrc	-> n ${HOME}/.zshrc

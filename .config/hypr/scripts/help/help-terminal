@@ -11,6 +11,7 @@ CYAN="\e[36m"
 GREY="\e[37m"
 RESET="\e[0m"
 
+echo -e "${YELLOW}=== ~/.config/hypr/scripts/help/help-terminal ===${RESET}"
 echo -e "${BLUE}=== Vim ===${RESET}"
 cat <<EOF
 n, v, vi, vim -> nvim
@@ -30,6 +31,7 @@ echo -e "${BLUE}=== Holberton (C/Valgrind) ===${RESET}"
 cat <<EOF
 gcch	-> gcc -Wall -pedantic -Werror -Wextra -std=gnu89
 val	-> clear && valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./a.out
+pcs	-> pycodestyle *
 EOF
 
 echo -e "${BLUE}=== Love2D ===${RESET}"

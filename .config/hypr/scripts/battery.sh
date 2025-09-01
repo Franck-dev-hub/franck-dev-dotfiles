@@ -1,6 +1,7 @@
 #!/bin/bash
 
 THRESHOLD=20
+LUM=10
 
 BAT_DIR="/sys/class/power_supply"
 
@@ -31,4 +32,5 @@ fi
 
 if [[ "$GLOBAL_PERCENT" -le "$THRESHOLD" && "$DISCHARGING" == true ]]; then
     notify-send -u critical "⚡ Batterie faible" "Charge globale : $GLOBAL_PERCENT%"
+    brightnessctl set ${LUM}%
 fi
