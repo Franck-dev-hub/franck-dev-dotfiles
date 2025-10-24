@@ -31,7 +31,7 @@ echo -e "${BLUE}=== Holberton (C/Valgrind) ===${RESET}"
 cat <<EOF
 gcch	-> gcc -Wall -pedantic -Werror -Wextra -std=gnu89
 val	-> clear && valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./a.out
-pcs	-> pycodestyle *
+pcs	-> pycodestyle
 EOF
 
 echo -e "${BLUE}=== Love2D ===${RESET}"
