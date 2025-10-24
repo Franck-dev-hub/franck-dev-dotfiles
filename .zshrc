@@ -94,7 +94,9 @@ alias gds="git diff --stat"
 alias gcch="gcc -Wall -pedantic -Werror -Wextra -std=gnu89"
 alias val="clear && valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all"
 alias cbetty="clear && betty *"
-alias pcs="pycodestyle *"
+alias pcs="pycodestyle"
+alias shbang="echo "#\!/usr/bin/bash" | tee -ii *.sh"
+alias pybang="echo "#\!/usr/bin/python3" | tee -ii *.py"
 
 # --- Love2D ---
 alias lov="love ./"
