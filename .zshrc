@@ -96,7 +96,7 @@ alias val="clear && valgrind --leak-check=full --track-origins=yes --show-leak-k
 alias cbetty="clear && betty *"
 alias pcs="pycodestyle"
 alias shbang="echo "#\!/usr/bin/bash" | tee -ii *.sh"
-alias pybang="echo "#\!/usr/bin/python3" | tee -ii *.py"
+alias pybang="echo "#\!/usr/bin/env\ python3" | tee -ii *.py"
 
 # --- Love2D ---
 alias lov="love ./"
