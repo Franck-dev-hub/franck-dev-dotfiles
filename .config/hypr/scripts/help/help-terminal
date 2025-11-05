@@ -27,11 +27,14 @@ cursor	-> find /usr/share/icons ${HOME}/.local/share/icons ${HOME}/.icons -type 
 display	-> nwg-look
 EOF
 
-echo -e "${BLUE}=== Holberton (C/Valgrind) ===${RESET}"
+echo -e "${BLUE}=== Holberton ===${RESET}"
 cat <<EOF
 gcch	-> gcc -Wall -pedantic -Werror -Wextra -std=gnu89
 val	-> clear && valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all ./a.out
 pcs	-> pycodestyle
+shbang	-> echo "#\!/usr/bin/bash" | tee -ii *.sh
+pybang	-> echo "#\!/usr/bin/python3" | tee -ii *.py
+jsbang	-> echo "#\!/usr/bin/node" | tee -ii *.js
 EOF
 
 echo -e "${BLUE}=== Love2D ===${RESET}"

@@ -97,6 +97,7 @@ alias cbetty="clear && betty *"
 alias pcs="pycodestyle"
 alias shbang="echo "#\!/usr/bin/bash" | tee -ii *.sh"
 alias pybang="echo "#\!/usr/bin/python3" | tee -ii *.py"
+alias jsbang="echo "#\!/usr/bin/node" | tee -ii *.js"
 
 # --- Love2D ---
 alias lov="love ./"
