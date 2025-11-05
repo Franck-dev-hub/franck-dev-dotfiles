@@ -91,13 +91,19 @@ alias gd="git diff"
 alias gds="git diff --stat"
 
 # --- Holberton (C/Valgrind) ---
+# Bash
+alias shbang="echo "#\!/usr/bin/bash" | tee -ii *.sh"
+# C
 alias gcch="gcc -Wall -pedantic -Werror -Wextra -std=gnu89"
 alias val="clear && valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all"
 alias cbetty="clear && betty *"
+# Python
 alias pcs="pycodestyle"
-alias shbang="echo "#\!/usr/bin/bash" | tee -ii *.sh"
 alias pybang="echo "#\!/usr/bin/python3" | tee -ii *.py"
+# JS
 alias jsbang="echo "#\!/usr/bin/node" | tee -ii *.js"
+alias ssa="semistandard *.js"
+alias ssf="semistandard --fix"
 
 # --- Love2D ---
 alias lov="love ./"
