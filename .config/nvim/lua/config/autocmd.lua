@@ -31,12 +31,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 })
 
 
--- spellcheck in md
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "markdown",
-	command = "setlocal spell wrap",
-})
-
 
 -- disable automatic comment on newline
 vim.api.nvim_create_autocmd("FileType", {
