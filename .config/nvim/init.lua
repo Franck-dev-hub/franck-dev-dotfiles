@@ -1,8 +1,3 @@
--- bread's neovim config
--- keymaps are in lua/config/mappings.lua
--- install a patched font & ensure your terminal supports glyphs
--- enjoy :D
-
 -- auto install vim-plug and plugins, if not found
 local data_dir = vim.fn.stdpath('data')
 if vim.fn.empty(vim.fn.glob(data_dir .. '/site/autoload/plug.vim')) == 1 then
@@ -74,9 +69,6 @@ require("plugins.which-key")
 require("plugins.zeit")
 
 vim.defer_fn(function() 
-		--defer non-essential configs,
-		--purely for experimental purposes:
-		--this only makes a difference of +-10ms on initial startup
 require("plugins.autopairs")
 require("plugins.fterm")
 require("plugins.fzf-lua")
