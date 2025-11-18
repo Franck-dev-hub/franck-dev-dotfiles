@@ -1,6 +1,6 @@
 -- Auto-command for Assembly
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "python",
+  pattern = "assembly",
   callback = function()
     -- Indentation
     vim.bo.expandtab = false
