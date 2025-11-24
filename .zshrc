@@ -101,7 +101,7 @@ alias val="clear && valgrind --leak-check=full --track-origins=yes --show-leak-k
 alias cbetty="clear && betty *"
 # Python
 alias pcs="pycodestyle"
-alias pybang="echo "#\!/usr/bin/python3" | tee -ii *.py"
+alias pybang="echo "#\!/usr/bin/env\ python3" | tee -ii *.py"
 # JS
 alias jsbang="echo "#\!/usr/bin/node" | tee -ii *.js"
 alias ssa="semistandard *.js"
