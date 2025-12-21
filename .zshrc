@@ -53,16 +53,24 @@ zstyle ':completion:*' verbose yes
 bindkey '^I' expand-or-complete
 bindkey "^[[3~" delete-char
 
-# ===================== Auto Start ===================== 
-# Load environnement variables from .env file
+# ===================== Auto Start =====================
+# --- Load hidden env variables ---
 if [ -f ~/.env ]; then
     set -a
     source ~/.env
     set +a
 fi
 
-# Env var for lcc
+# --- Env var for lcc ---
 export PATH=$PATH:/opt/gbdk/bin
+
+# ===================== Custom functions =====================
+# --- Make a file and his path ---
+mkfile() {
+	for file in "$@"; do
+		mkdir -p "$(dirname "$file")" && touch "$file"
+	done
+}
 
 # ===================== Aliases =====================
 # --- Vim ---
