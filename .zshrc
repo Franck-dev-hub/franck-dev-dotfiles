@@ -100,6 +100,13 @@ alias gcanf="git commit --amend --no-edit && git push -f"
 alias gd="git diff"
 alias gds="git diff --stat"
 
+# --- Docker Compose ---
+alias dcd="docker compose down"
+alias dcb="docker compose build --no-cache"
+alias dcu="docker compose up -d"
+alias dc-reset="docker compose down && docker compose build --no-cache && docker compose up -d"
+alias dcs="docker compose ps"
+
 # --- Holberton (C/Valgrind) ---
 # Bash
 alias shbang="echo "#\!/usr/bin/bash" | tee -ii *.sh"
