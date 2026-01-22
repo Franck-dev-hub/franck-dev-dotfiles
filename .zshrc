@@ -102,8 +102,8 @@ alias gds="git diff --stat"
 
 # --- Docker Compose ---
 alias dcd="docker compose down"
-alias dcb="docker compose build --no-cache"
-alias dcu="docker compose up -d"
+alias dcb="docker compose build"
+alias dcu="docker compose up"
 alias dc-reset="docker compose down && docker compose build --no-cache && docker compose up -d"
 alias dcs="docker compose ps"
 
