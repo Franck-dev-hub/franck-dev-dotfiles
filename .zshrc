@@ -85,6 +85,10 @@ alias ls="lsd --group-dirs first"
 alias fibo="${HOME}/.config/waybar/scripts/fibo.sh"
 alias tab="sc-im -l /usr/share/sc-im/themes/f-seeker.sc"
 
+# --- Uv (python) ---
+alias uv-venv"uv init && uv venv .venv && source .venv/bin/activate"
+alias uv-req="uv pip compile pyproject.toml -o requirements.txt"
+
 # --- Git/Github ---
 alias gs="clear && git status"
 alias ga="git add"
