@@ -108,7 +108,8 @@ alias gds="git diff --stat"
 alias dcd="docker compose down"
 alias dcb="docker compose build"
 alias dcu="docker compose up"
-alias dcreset="docker compose down && docker compose build --no-cache && docker compose up -d"
+alias dcr="docker compose restart"
+alias dcrd="docker compose down -v --remove-orphans --rmi local && docker compose build --no-cache && docker compose up -d"
 alias dcs="docker compose ps"
 
 # --- Holberton (C/Valgrind) ---
