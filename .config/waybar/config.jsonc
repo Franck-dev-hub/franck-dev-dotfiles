@@ -12,6 +12,7 @@
 		"custom/music"
 	],
 	"modules-right": [
+		"cpu",
 		"pulseaudio",
 		"network",
 		"backlight",
@@ -57,6 +58,11 @@
 	},
 
 /* ========== Right Modules ========== */
+	"cpu": {
+		"interval": 2,
+		"format": " {}%",
+		"max-length": 10
+	},
 	"pulseaudio": {
 		"scroll-step": 1, 
 		"format": "{icon} {volume}%",
