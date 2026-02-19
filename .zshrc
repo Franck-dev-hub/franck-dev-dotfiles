@@ -105,12 +105,15 @@ alias gd="git diff"
 alias gds="git diff --stat"
 
 # --- Docker Compose ---
-alias dcd="docker compose down"
-alias dcb="docker compose build"
-alias dcu="docker compose up"
-alias dcr="docker compose restart"
-alias dcrd="docker compose down -v --remove-orphans --rmi local && docker compose build --no-cache && docker compose up -d"
-alias dcs="docker compose ps"
+alias dc="docker compose"
+alias dcd="dc down"
+alias dcb="dc build"
+alias dcu="dc up"
+alias dcr="dc restart"
+alias dcdeath="clear && dc down -v --rmi all && docker builder prune -a"
+alias dclife="dc build --no-cache && dc up -d"
+alias dcs="dc ps"
+alias dcl="dc logs -f --tail=50"
 
 # --- Holberton (C/Valgrind) ---
 # Bash
@@ -165,3 +168,8 @@ alias help-monitor="clear && ${HOME}/.config/hypr/scripts/help/help-monitor"
 alias help-terminal="clear && ${HOME}/.config/hypr/scripts/help/help-terminal"
 alias help-webcam="clear && ${HOME}/.config/hypr/scripts/help/help-webcam"
 alias help-wifi="clear && ${HOME}/.config/hypr/scripts/help/help-wifi"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/franck/.lmstudio/bin"
+# End of LM Studio CLI section
+
