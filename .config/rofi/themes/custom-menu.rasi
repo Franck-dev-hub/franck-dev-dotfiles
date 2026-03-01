@@ -1,0 +1,217 @@
+/*****----- Configuration -----*****/
+configuration {
+	modi: "drun,run,filebrowser,window";
+	show-icons: true;
+	display-drun: "";
+	display-run: "";
+	display-filebrowser: "";
+	display-window: "";
+	drun-display-format: "{name}";
+	window-format: "{w} {c} {t}";
+	filebrowser {
+		directory: "/home/franck";
+		directories-first: true;
+		sorting-method: "name";
+	}
+}
+
+/*****----- Global Properties -----*****/
+* {
+	/* Font */
+	font: "Roboto 12";
+	/* Radius */
+	px-main: 24px;
+	px-main-alt: 16px;
+	px-sec: 12px;
+	px-ter: 8px;
+	px-qua: 4px;
+	/* Background */
+	bg: #1E2127FF;
+	bg-tr: #00000000;
+	bg-alt: #282B31FF;
+	/* colors */
+	fg: #FFFFFFFF;
+	fg-alt: #282C34;
+	selected: #61AFEFFF;
+	active: #89FAB4FF;
+	urgent: #E06C75FF;
+}
+
+/*****----- Main Window -----*****/
+window {
+	/* properties for window widget */
+	transparency: "real";
+	location: center;
+	anchor: center;
+	fullscreen: false;
+	height: 74%;
+	width: 50%;
+
+	/* properties for all widgets */
+	enabled: true;
+	border: 1px solid;
+	border-radius: @px-main;
+	border-color: @selected;
+	background-color: @bg-tr;
+	cursor: "default";
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+	enabled: true;
+	spacing: 0px;
+	margin: @px-main;
+	background-color: transparent;
+	orientation: vertical;
+	children: [ "inputbar", "listbox", "mode-switcher" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+	enabled: true;
+	padding: 12px 24px;
+	border-radius: 50%;
+	background-color: @bg-alt;
+	text-color: @fg;
+	children: [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+	enabled: true;
+	expand: false;
+	str: " ";
+	background-color: transparent;
+	text-color: inherit;
+}
+
+entry {
+	enabled: true;
+	background-color: transparent;
+	text-color: inherit;
+	cursor: text;
+	placeholder: " Search";
+	placeholder-color: inherit;
+}
+
+/*****----- Listbox -----*****/
+listbox {
+	padding: 12px 0px 12px 0px;
+	background-color: transparent;
+	orientation: vertical;
+	children: [ "listview" ];
+}
+
+listview {
+	enabled: true;
+	columns: 5;
+	scrollbar: false;
+	layout: vertical;
+	reverse: false;
+	fixed-height: true;
+	fixed-columns: true;
+
+	spacing: @px-sec;
+	background-color: transparent;
+	text-color: @fg;
+	cursor: "default";
+}
+
+/*****----- Mode Switcher -----*****/
+mode-switcher{
+	enabled: true;
+	spacing: @px-sec;
+	background-color: transparent;
+	text-color: @fg;
+}
+
+button {
+	padding: @px-main-alt;
+	border-radius: 50%;
+	background-color: @bg-alt;
+	text-color: inherit;
+	cursor: pointer;
+}
+
+button selected {
+	background-color: @selected;
+	text-color: @fg;
+}
+
+/*****----- Elements -----*****/
+element {
+	enabled: true;
+	orientation: vertical;
+	spacing: @px-ter;
+	padding: @px-ter;
+	border-radius: @px-ter;
+	background-color: transparent;
+	text-color: @fg;
+	cursor: pointer;
+}
+
+element normal.normal {
+	background-color: inherit;
+	text-color: inherit;
+}
+
+element normal.urgent {
+	background-color: @urgent;
+	text-color: @fg;
+}
+
+element normal.active {
+	background-color: @active;
+	text-color: @fg;
+}
+
+element selected.normal {
+	background-color: @selected;
+	text-color: @fg;
+}
+
+element selected.urgent {
+	background-color: @urgent;
+	text-color: @fg;
+}
+
+element selected.active {
+	background-color: @urgent;
+	text-color: @fg;
+}
+
+element-icon {
+	background-color: transparent;
+	text-color: inherit;
+	size: 96px;
+	cursor: inherit;
+	horizontal-align: 0.5;
+}
+
+element-text {
+	background-color: transparent;
+	text-color: inherit;
+	cursor: inherit;
+	vertical-align: 0.5;
+	horizontal-align: 0.5;
+}
+
+/*****----- Message -----*****/
+message {
+	background-color: transparent;
+}
+
+textbox {
+	padding: @px-sec;
+	border-radius: @px-sec;
+	background-color: @bg-alt;
+	text-color: @fg;
+	vertical-align: 0.5;
+	horizontal-align: 0.5;
+}
+
+error-message {
+	padding: @px-sec;
+	border-radius: @px-sec;
+	background-color: @bg;
+	text-color: @fg;
+}
