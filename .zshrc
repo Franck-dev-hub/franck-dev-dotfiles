@@ -113,6 +113,7 @@ alias dcr="dc restart"
 alias dcdeath="clear && dc down -v && docker builder prune"
 alias dclife="dc up --build -d"
 alias dcrebirth="clear && dcdeath && dclife"
+alias dcprune="docker system prune -a --volumes"
 alias dcs="dc ps"
 alias dcl="dc logs -f --tail=50"
 
