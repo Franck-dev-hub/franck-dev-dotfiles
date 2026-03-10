@@ -27,7 +27,7 @@ configuration {
 	px-qua: 4px;
 	/* Background */
 	bg: #1E2127FF;
-	bg-tr: #00000000;
+	bg-tr: #00000030;
 	bg-alt: #282B31FF;
 	/* colors */
 	fg: #FFFFFFFF;
