@@ -1,19 +1,21 @@
 -- Auto-command for TypeScript
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "typescript",
+  pattern = {"typescript", "typescriptreact"},
   callback = function()
     -- Indentation
     vim.bo.expandtab = true
     vim.bo.shiftwidth = 2
     vim.bo.tabstop = 2
     vim.bo.softtabstop = 2
-
-    -- Activate linting with ESLint if installed
-    vim.cmd([[setlocal formatprg=eslint\ --fix\ --stdin\ --stdin-filename\ %]])
-
-    vim.api.nvim_create_autocmd("BufWritePre", {
-	    pattern = "*.ts",
-	    command = "EslintFixAll"
+    -- Autoformat with eslint at the save
+    vim.api.nvim_create_autocmd("BufWritePost", {
+      pattern = {"*.ts", "*.tsx"},
+      callback = function()
+        -- Execute npm run fix on the current file
+        vim.cmd("silent !npx eslint --fix " .. vim.fn.expand("%:p"))
+        -- Reload buffer after format
+        vim.cmd("edit!")
+      end
     })
     end
 })
