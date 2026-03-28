@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd("FileType", {
       pattern = {"*.ts", "*.tsx"},
       callback = function()
         -- Execute npm run fix on the current file
-        vim.cmd("silent !npx eslint --fix " .. vim.fn.expand("%:p"))
+        vim.cmd("silent! !npx run --fix")
         -- Reload buffer after format
         vim.cmd("edit!")
       end
