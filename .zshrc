@@ -80,8 +80,8 @@ alias vi="nvim"
 alias vim="nvim"
 
 # --- Terminal ---
-alias ll="ls -Alh"
 alias ls="lsd --group-dirs first"
+alias ll="ls -Alh --total-size"
 alias fibo="${HOME}/.config/waybar/scripts/fibo.sh"
 alias tab="sc-im -l /usr/share/sc-im/themes/f-seeker.sc"
 
