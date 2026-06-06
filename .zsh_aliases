@@ -1,0 +1,73 @@
+# ===================== Navigation & Files =====================
+alias ls="lsd --group-dirs first"
+alias ll="ls -Alh"
+alias lla="eza -Alh --total-size"
+alias lls="ls -Alh --total-size"
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# ===================== Editor =====================
+alias n="nvim"
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
+
+# ===================== Git =====================
+alias gs="clear && git status"
+alias ga="git add"
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gac="git add . && git commit"
+alias gacm="git add . && git commit -m"
+alias gca="git commit --amend"
+alias gcan="git commit --amend --no-edit"
+alias gp="git push"
+alias gpf="git push -f"
+alias gcanf="git commit --amend --no-edit && git push -f"
+alias gd="git diff"
+alias gds="git diff --stat"
+
+# ===================== Docker Compose =====================
+alias docker-compose="docker compose"
+alias dc="docker compose"
+alias dcd="dc down"
+alias dcb="dc build"
+alias dcu="dc up"
+alias dcr="dc restart"
+alias dcs="dc ps"
+alias dcl="dc logs -f --tail=50"
+alias dcdeath="clear && dc down -v && docker builder prune"
+alias dclife="dc up --build -d"
+alias dcrebirth="clear && dcdeath && dclife"
+alias dcprune="docker system prune -a --volumes"
+
+# ===================== C =====================
+alias gcch="gcc -Wall -pedantic -Werror -Wextra -std=gnu89"
+alias val="clear && valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all"
+alias cbetty="clear && betty *"
+
+# ===================== Bash =====================
+alias shbang="echo '#\!/usr/bin/bash' | tee -ii *.sh"
+
+# ===================== JS =====================
+alias jsbang="echo '#\!/usr/bin/node' | tee -ii *.js"
+alias ssa="semistandard *.js"
+alias ssaf="semistandard --fix"
+
+# ===================== Python =====================
+alias pcs="pycodestyle"
+alias pybang="echo '#\!/usr/bin/env python3' | tee -ii *.py"
+alias uv-venv="uv init && uv venv .venv && source .venv/bin/activate"
+alias uv-req="uv pip compile pyproject.toml -o requirements.txt"
+
+# ===================== Configs =====================
+alias zshrc="n ${HOME}/.zshrc"
+alias zsh_aliases="n ${HOME}/.zsh_aliases"
+
+# ===================== System tools =====================
+alias ff="fastfetch"
+alias ffm="fastfetch --config ${HOME}/.config/fastfetch/start.jsonc"
+alias lov="love ./"
+# Use : sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'

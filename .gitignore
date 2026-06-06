@@ -8,6 +8,7 @@
 
 # Zsh
 !.zshrc
+!.zsh_aliases
 !help.sh
 
 # Packages Backup
