@@ -1,16 +1,16 @@
-# 👋 Welcome to my Linux dotfiles repository
+# Arch Linux dotfiles repository
 
 <p>
-Welcome to my dotfiles repository. It's clean, minimal, and... yes, I use Arch btw.<br>
+Welcome to my dotfiles repository.  
 Fork it, tweak it, and make it yours!
 </p>
 
-## 🧰 Repository Contents
+## Repository Contents
 
 <p>
 Below are the main configurations included.<br>
 Click on the 
-<a href="https://img.shields.io"><img src="https://img.shields.io/badge/badges-89B4fA"></a> to visit the official repositories and give them all your love 💖.
+<a href="https://img.shields.io"><img src="https://img.shields.io/badge/badges-89B4fA"></a> to visit the official repositories and give them all your love 💖
 </p>
   
 | Technology | Component             | Description              |
@@ -27,12 +27,13 @@ Click on the
 | [![Oh My Posh](https://img.shields.io/badge/Oh_My_Posh-FF69B4?logo=powershell&logoColor=fff)](https://github.com/JanDeDobbeleer/oh-my-posh) | `~/.config/ohmyposh`     | Terminal prompt theme |
 | [![Sublime Text](https://img.shields.io/badge/Sublime_Text-FF9800?logo=sublime-text&logoColor=fff)](https://github.com/SublimeText) | `~/.config/sublime-text` | GUI text editor |
 
-## 🚀 Quick Installation
+## Quick Installation
 
-> ⚠️ These configurations are primarily tested on [![Arch Linux](https://img.shields.io/badge/Arch-Linux-1793D1?logo=arch-linux&logoColor=fff)](#). They may require adjustments for other distributions.
+> ⚠️ These configurations are primarily tested on [![Arch Linux](https://img.shields.io/badge/Arch-Linux-1793D1?logo=arch-linux&logoColor=fff)](#).
+> They may require adjustments for other distributions.
 
 <details>
-  <summary><h3>🔧 Installation Steps</h3></summary>
+  <summary><h3>Installation Steps</h3></summary>
 
 ### 1. Clone the Repository
 
@@ -58,7 +59,7 @@ cp -r .config/* ~/.config/
 ### 4. Install Dependencies
 
 <details>
-  <summary><strong>💠🐧 Arch 🐧💠</strong></summary>
+  <summary><strong>Arch</strong></summary>
 
 ```bash
 sudo pacman -S zsh neovim waybar hyprland mako fastfetch rofi ttf-nerd-fonts-symbols oh-my-posh
@@ -66,7 +67,7 @@ sudo pacman -S zsh neovim waybar hyprland mako fastfetch rofi ttf-nerd-fonts-sym
 
 </details>
 <details>
-  <summary><strong>🌀🐧 Debian 🐧🌀</strong></summary>
+  <summary><strong>Debian</strong></summary>
 
 ```bash
 sudo apt update
@@ -74,7 +75,7 @@ sudo apt install zsh neovim waybar hyprland mako-bin fastfetch rofi fonts-nerd-f
 ```
 
 </details>
-<details><summary><strong>🐾🐧 Fedora 🐧🐾</strong></summary>
+<details><summary><strong>Fedora</strong></summary>
   
 ```bash
 sudo dnf install zsh neovim waybar hyprland mako fastfetch rofi nerd-fonts-ttf oh-my-posh
@@ -82,20 +83,20 @@ sudo dnf install zsh neovim waybar hyprland mako fastfetch rofi nerd-fonts-ttf o
 </details>
 </details>
 
-## 📁 Git Structure
+## Git Structure
 
 This repository uses an inverted `.gitignore` pattern to track only essential config files and ignore the rest.
 
-## 🙌 Notes
+## Notes
 
 - Make sure to adapt paths and configs to match your specific system setup.
 - Contributions, suggestions, or forks are always welcome!
 
-## 📜 License
+## License
 
 This project is licensed under the **GNU GPL v3.0**. See the LICENSE file for more information.
 
-## 💖 Acknowledgments
+## Acknowledgments
 
 Big thanks to the Linux community and everyone who shares their knowledge and tools.<br>
 [![YouTube](https://img.shields.io/badge/YT-Bread_on_Penguins-555555?logo=youtube&logoColor=white&labelColor=FF0000)](https://www.youtube.com/@BreadOnPenguins)
