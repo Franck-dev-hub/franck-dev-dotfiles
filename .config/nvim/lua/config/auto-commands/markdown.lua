@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.softtabstop = 2
 
     -- Max row width
-    vim.wo.textwidth = 80
+    vim.bo.textwidth = 80
     vim.wo.linebreak = true
   end
 })
