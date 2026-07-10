@@ -18,6 +18,11 @@
 # Config folder
 !.config/
 
+# Claude code
+!.claude/
+!.claude/scripts/
+!.claude/scripts/context-bar.sh
+
 # Fastfetch
 !.config/fastfetch/
 !.config/fastfetch/**
