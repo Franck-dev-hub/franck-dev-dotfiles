@@ -1,17 +1,23 @@
 # ===================== Navigation & Files =====================
+# ----- ls -----
 alias ls="lsd --group-dirs first"
 alias ll="ls -Alh"
 alias lla="eza -Alh --total-size"
 alias lls="ls -Alh --total-size"
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+# ----- grep -----
+alias grep="grep --color=auto"
+# ----- cd -----
+alias cdobs="cd ~/Nextcloud/Franck/Obsidian"
+alias cdemagma="cd ~/Documents/Emagma"
+alias cdperso="cd ~/Documents/Perso"
 
 # ===================== Editor =====================
 alias n="nvim"
 alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
+# THE MOST IMPORTANT COMMAND
+alias nano="vim"
 
 # ===================== Git =====================
 alias gs="clear && git status"
@@ -23,10 +29,15 @@ alias gacm="git add . && git commit -m"
 alias gca="git commit --amend"
 alias gcan="git commit --amend --no-edit"
 alias gp="git push"
-alias gpf="git push -f"
-alias gcanf="git commit --amend --no-edit && git push -f"
+alias gpull="git pull"
+alias gpf="git push --force-with-lease"
+alias gcanf="git commit --amend --no-edit && git push --force-with-lease"
 alias gd="git diff"
 alias gds="git diff --stat"
+alias glpr="git push --set-upstream origin HEAD -o merge_request.create -o merge_request.merge_when_pipeline_succeeds"
+alias glsdev="! git checkout develop && git pull --prune && git fetch --prune && git branch -d @{-1}"
+alias grebase="rebase --rebase-merges"
+alias gtags="!git tag | sort -V"
 
 # ===================== Docker Compose =====================
 alias docker-compose="docker compose"
@@ -37,10 +48,6 @@ alias dcu="dc up"
 alias dcr="dc restart"
 alias dcs="dc ps"
 alias dcl="dc logs -f --tail=50"
-alias dcdeath="clear && dc down -v && docker builder prune"
-alias dclife="dc up --build -d"
-alias dcrebirth="clear && dcdeath && dclife"
-alias dcprune="docker system prune -a --volumes"
 
 # ===================== C =====================
 alias gcch="gcc -Wall -pedantic -Werror -Wextra -std=gnu89"
@@ -56,14 +63,26 @@ alias ssa="semistandard *.js"
 alias ssaf="semistandard --fix"
 
 # ===================== Python =====================
-alias pcs="pycodestyle"
+alias pcheck='f() { flake8 "$1" && ruff check "$1"; }; f'
+alias pformat='f() { ruff format "$1" && ruff check "$1"; }; f'
 alias pybang="echo '#\!/usr/bin/env python3' | tee -ii *.py"
 alias uv-venv="uv init && uv venv .venv && source .venv/bin/activate"
 alias uv-req="uv pip compile pyproject.toml -o requirements.txt"
 
+# ===================== Symfony =====================
+alias sf='symfony console'
+alias sfcc='symfony console cache:clear'
+alias sfdsuf='symfony console doctrine:schema:update --force'
+
+# ===================== Sylius =====================
+alias syvers="php -v | grep PHP && echo '----------\nSymfony' && composer show symfony/framework-bundle | grep versions && echo '----------\nSylius' && composer show sylius/sylius | grep versions"
+
+# ===================== LLM =====================
+alias cloclo="claude -c"
+
 # ===================== Configs =====================
-alias zshrc="n ${HOME}/.zshrc"
-alias zsh_aliases="n ${HOME}/.zsh_aliases"
+alias zshrc="n ${HOME}/.zshrc && source ${HOME}/.zshrc"
+alias zsh_aliases="n ${HOME}/.zsh_aliases && source ${HOME}/.zshrc"
 
 # ===================== System tools =====================
 alias ff="fastfetch"
@@ -71,3 +90,43 @@ alias ffm="fastfetch --config ${HOME}/.config/fastfetch/start.jsonc"
 alias lov="love ./"
 # Use : sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# ===================== Fonctions =====================
+# Create a file and the folder path
+mkfile() {
+	for file in "$@"; do
+		mkdir -p "$(dirname "$file")" && touch "$file"
+	done
+}
+
+# Grep usage of a sylius package
+grep-sylius-packages() {
+	local package=$1
+
+	echo "----------------------------------------"
+	echo "Package" $(composer show "$package" | grep versions)
+
+	echo "----------------------------------------"
+	local files
+	files=$(grep -r "$package" src/ --include="*.php" -l)
+
+	if [ -z "$files" ]; then
+		echo "No package usage found"
+		echo "----------------------------------------"
+	else
+		echo "Where package is used (files)"
+		echo "$files"
+
+		echo "----------------------------------------"
+		echo "Get all code related (use statements)"
+		local uses
+		uses=$(grep -r "use Sylius" src/ --include="*.php" | grep -i "$package")
+
+		if [ -z "$uses" ]; then
+			echo "No use statement found"
+			echo "----------------------------------------"
+		else
+			echo "$uses"
+		fi
+	fi
+}
