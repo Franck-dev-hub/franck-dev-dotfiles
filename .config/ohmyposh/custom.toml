@@ -6,28 +6,29 @@ final_space = false
 
 # ========== Colors ==========
 [palette]
-cmd-done = "#55ff55"
-cmd-fail = "#ff5555"
-font-light = "#FFFFFF"
-font-dark = "#000000"
-git        = "#3B78FF"
-git-branch = "#E74856"
-git-add    = "#16C60C"
-git-rm     = "#C50F1F"
-git-chg    = "#F9A825"
+cmd-done    = "#55ff55"
+cmd-fail    = "#ff5555"
+font-light  = "#FFFFFF"
+font-dark   = "#000000"
+git         = "#3B78FF"
+git-branch  = "#E74856"
+git-add     = "#16C60C"
+git-rm      = "#C50F1F"
+git-chg     = "#F9A825"
 git-untrack = "#9DA5B4"
 git-ahead   = "#00B7C3"
-git-pull  = "#8E7CC3"
+git-pull    = "#8E7CC3"
+docker      = "#1D63ED"
 lang-python = "#3572A5"
-lang-php = "#787CB5"
-lang-lua = "#000080"
-lang-node ="#339933"
-lang-r = "#276DC3"
-lang-rust = "#DEA584"
-path = "#7a99ff"
-root-fg = "#ff0000"
-time-fg = "#FFFFFF"
-trans = "#B373FD"
+lang-php    = "#787CB5"
+lang-lua    = "#000080"
+lang-node   = "#339933"
+lang-r      = "#276DC3"
+lang-rust   = "#DEA584"
+path        = "#7a99ff"
+root-fg     = "#ff0000"
+time-fg     = "#FFFFFF"
+trans       = "#B373FD"
 
 # ========== Transient mode ==========
 [transient_prompt]
@@ -48,119 +49,124 @@ alignment = "left"
 
 # ----- Virtual environment -----
 # Python
-  [[blocks.segments]]
-  type = "python"
-  style = "plain"
-  foreground = "p:lang-python"
-  template = "(venv)"
-    [blocks.segments.properties]
-    display_mode = "environment"
-    fetch_virtual_env = true
-    fetch_version = true
+	[[blocks.segments]]
+	type = "python"
+	style = "plain"
+	foreground = "p:lang-python"
+	template = "(venv)"
+		[blocks.segments.properties]
+		display_mode = "environment"
+		fetch_virtual_env = true
+		fetch_version = true
 
 # Lua
-  [[blocks.segments]]
-  type = "lua"
-  style = "plain"
-  foreground = "p:lang-lua"
-  template = "({{ .Venv }})"
-    [blocks.segments.properties]
-    display_mode = "environment"
-    fetch_virtual_env = true
-    fetch_version = true
+	[[blocks.segments]]
+	type = "lua"
+	style = "plain"
+	foreground = "p:lang-lua"
+	template = "({{ .Venv }})"
+		[blocks.segments.properties]
+		display_mode = "environment"
+		fetch_virtual_env = true
+		fetch_version = true
 
 # Node
-  [[blocks.segments]]
-  type = "node"
-  style = "plain"
-  foreground = "p:lang-node"
-  template = "({{ .Venv }})"
-    [blocks.segments.properties]
-    display_mode = "environment"
-    fetch_virtual_env = true
-    fetch_version = true
+	[[blocks.segments]]
+	type = "node"
+	style = "plain"
+	foreground = "p:lang-node"
+	template = "({{ .Venv }})"
+		[blocks.segments.properties]
+		display_mode = "environment"
+		fetch_virtual_env = true
+		fetch_version = true
 
 # R
-  [[blocks.segments]]
-  type = "r"
-  style = "plain"
-  foreground = "p:lang-r"
-  template = "({{ .Venv }})"
-    [blocks.segments.properties]
-    display_mode = "environment"
-    fetch_virtual_env = true
-    fetch_version = true
+	[[blocks.segments]]
+	type = "r"
+	style = "plain"
+	foreground = "p:lang-r"
+	template = "({{ .Venv }})"
+		[blocks.segments.properties]
+		display_mode = "environment"
+		fetch_virtual_env = true
+		fetch_version = true
 
 # Rust
-  [[blocks.segments]]
-  type = "rust"
-  style = "plain"
-  foreground = "p:lang-rust"
-  template = "({{ .Venv }})"
-    [blocks.segments.properties]
-    display_mode = "environment"
-    fetch_virtual_env = true
-    fetch_version = true
+	[[blocks.segments]]
+	type = "rust"
+	style = "plain"
+	foreground = "p:lang-rust"
+	template = "({{ .Venv }})"
+		[blocks.segments.properties]
+		display_mode = "environment"
+		fetch_virtual_env = true
+		fetch_version = true
 
 # ----- Root mode -----
-  [[blocks.segments]]
-  foreground = "p:root-fg"
-  type = "root"
-  style = "plain"
+	[[blocks.segments]]
+	foreground = "p:root-fg"
+	type = "root"
+	style = "plain"
 
 # ----- Folder path -----
-  [[blocks.segments]]
-  type = "path"
-  foreground = "p:path"
-  template = " {{ .Path }} "
-    [blocks.segments.properties]
-    folder_icon = "."
-    folder_separator_icon = "/"
-    max_depth = 3
-    truncate_to_repo = true
+	[[blocks.segments]]
+	type = "path"
+	foreground = "p:path"
+	template = " {{ .Path }} "
+		[blocks.segments.properties]
+		style = "full"
+		folder_separator_icon = "/"
 
 # ----- Git status -----
-  [[blocks.segments]]
-  type = "git"
-  style = "plain"
-  display_mode = "context"
-  template = "<p:git>git(</><p:git-branch>{{ .HEAD }}</><p:git>)</>{{ if gt .Working.Added 0 }}<p:git-add> +{{ .Working.Added }}</>{{ end }}{{ if gt .Working.Deleted 0 }}<p:git-rm> -{{ .Working.Deleted }}</>{{ end }}{{ if gt .Working.Modified 0 }}<p:git-chg> !{{ .Working.Modified }}</>{{ end }}{{ if gt .Working.Untracked 0 }}<p:git-untrack> ?{{ .Working.Untracked }}</>{{ end }}{{ if gt .Ahead 0 }}<p:git-ahead> ↑{{ .Ahead }}</>{{ end }}{{ if gt .Behind 0 }}<p:git-pull> ↓{{ .Behind }}</>{{ end }}"
-    [blocks.segments.properties]
-    fetch_status = true
-    fetch_upstream_icon = false
-    branch_icon = ""
-    max_depth = 3
+	[[blocks.segments]]
+	type = "git"
+	style = "plain"
+	display_mode = "context"
+	template = "{{ if .HEAD }}<p:git>git(</><p:git-branch>{{ .HEAD }}</><p:git>)</>{{ if gt .Working.Added 0 }}<p:git-add> +{{ .Working.Added }}</>{{ end }}{{ if gt .Working.Deleted 0 }}<p:git-rm> -{{ .Working.Deleted }}</>{{ end }}{{ if gt .Working.Modified 0 }}<p:git-chg> !{{ .Working.Modified }}</>{{ end }}{{ if gt .Working.Untracked 0 }}<p:git-untrack> ?{{ .Working.Untracked }}</>{{ end }}{{ if gt .Ahead 0 }}<p:git-ahead> ↑{{ .Ahead }}</>{{ end }}{{ if gt .Behind 0 }}<p:git-pull> ↓{{ .Behind }}</>{{ end }}{{ end }}"
+		[blocks.segments.properties]
+		fetch_status = true
+		fetch_upstream_icon = false
+		branch_icon = ""
+		max_depth = 3
 
 # ----- Git status (debug) -----
-  #[[blocks.segments]]
-  #type = "git"
-  #style = "plain"
-  #display_mode = "context"
-  #template =  " DEBUG :<p:git-add> +{{ .Working.Added }}</><p:git-rm> -{{ .Working.Deleted }}</><p:git-chg> !{{ .Working.Modified }}</><p:git-untrack> ?{{ .Working.Untracked }}</><p:git-ahead> ↑{{ .Ahead }}</><p:git-pull> ↓{{ .Behind }}</>"
+#[[blocks.segments]]
+#type = "git"
+#style = "plain"
+#display_mode = "context"
+#template =  " DEBUG :<p:git-add> +{{ .Working.Added }}</><p:git-rm> -{{ .Working.Deleted }}</><p:git-chg> !{{ .Working.Modified }}</><p:git-untrack> ?{{ .Working.Untracked }}</><p:git-ahead> ↑{{ .Ahead }}</><p:git-pull> ↓{{ .Behind }}</>"
 
-    #[blocks.segments.properties]
-    #fetch_status = true
-    #fetch_upstream_icon = false
-    #branch_icon = ""
+#[blocks.segments.properties]
+#fetch_status = true
+#fetch_upstream_icon = false
+#branch_icon = ""
 
 # ----- Execution time -----
-  [[blocks.segments]]
-    type = "executiontime"
-    template = " {{ .FormattedMs }} "
-    foreground = "p:time-fg"
-      [blocks.segments.properties]
-      always_enabled = true
+	[[blocks.segments]]
+		type = "executiontime"
+		template = " {{ .FormattedMs }}"
+		foreground = "p:time-fg"
+			[blocks.segments.properties]
+			always_enabled = true
+
+# ----- Docker (running/stopped/down for the compose project in $PWD) -----
+	[[blocks.segments]]
+		type = "text"
+		style = "plain"
+		template = " {{ if .Env.POSH_DOCKER }}{{ .Env.POSH_DOCKER }}{{ end }}"
+
 
 # ----- Last code success / fail -----
-  [[blocks.segments]]
-  type = "status"
-  template = "{{ if gt .Code 0 }}{{ else }}{{ end }} "
-  foreground_templates = [
-    "{{ if gt .Code 0 }}p:cmd-fail{{ else }}p:cmd-done{{ end }}"
-  ]
+	[[blocks.segments]]
+	type = "status"
+	template = " {{ if gt .Code 0 }}{{ else }}{{ end }} "
+	foreground_templates = [
+		"{{ if gt .Code 0 }}p:cmd-fail{{ else }}p:cmd-done{{ end }}"
+	]
 
-    [blocks.segments.properties]
-    always_enabled = true
+		[blocks.segments.properties]
+		always_enabled = true
 
 # ========== Right blocks ==========
 [[blocks]]
@@ -169,61 +175,61 @@ alignment = "right"
 
 # ----- Virtual environment -----
 # Python
-  [[blocks.segments]]
-  type = "python"
-  style = "diamond"
-  leading_diamond = "\ue0b6"
-  trailing_diamond = ""
-  template = "Python {{ .Full }} "
-  foreground = "p:font-light"
-  background = "p:lang-python"
+	[[blocks.segments]]
+	type = "python"
+	style = "diamond"
+	leading_diamond = "\ue0b6"
+	trailing_diamond = ""
+	template = "Python {{ .Full }} "
+	foreground = "p:font-light"
+	background = "p:lang-python"
 
 # Php
-  [[blocks.segments]]
-  type = "php"
-  style = "diamond"
-  leading_diamond = "\ue0b6"
-  trailing_diamond = ""
-  template = "Php {{ .Full }} "
-  foreground = "p:font-dark"
-  background = "p:lang-php"
+	[[blocks.segments]]
+	type = "php"
+	style = "diamond"
+	leading_diamond = "\ue0b6"
+	trailing_diamond = ""
+	template = "Php {{ .Full }} "
+	foreground = "p:font-dark"
+	background = "p:lang-php"
 
 # Lua
-  [[blocks.segments]]
-  type = "lua"
-  style = "diamond"
-  leading_diamond = "\ue0b6"
-  trailing_diamond = ""
-  template = "Lua {{ .Full }} "
-  foreground = "p:font-light"
-  background = "p:lang-lua"
+	[[blocks.segments]]
+	type = "lua"
+	style = "diamond"
+	leading_diamond = "\ue0b6"
+	trailing_diamond = ""
+	template = "Lua {{ .Full }} "
+	foreground = "p:font-light"
+	background = "p:lang-lua"
 
 # Node
-  [[blocks.segments]]
-  type = "node"
-  style = "diamond"
-  leading_diamond = "\ue0b6"
-  trailing_diamond = ""
-  template = "Node {{ .Full }} "
-  foreground = "p:font-light"
-  background = "p:lang-node"
+	[[blocks.segments]]
+	type = "node"
+	style = "diamond"
+	leading_diamond = "\ue0b6"
+	trailing_diamond = ""
+	template = "Node {{ .Full }} "
+	foreground = "p:font-light"
+	background = "p:lang-node"
 
 # R
-  [[blocks.segments]]
-  type = "r"
-  style = "diamond"
-  leading_diamond = "\ue0b6"
-  trailing_diamond = ""
-  template = "R {{ .Full }} "
-  foreground = "p:font-light"
-  background = "p:lang-r"
+	[[blocks.segments]]
+	type = "r"
+	style = "diamond"
+	leading_diamond = "\ue0b6"
+	trailing_diamond = ""
+	template = "R {{ .Full }} "
+	foreground = "p:font-light"
+	background = "p:lang-r"
 
 # Rust
-  [[blocks.segments]]
-  type = "rust"
-  style = "diamond"
-  leading_diamond = "\ue0b6"
-  trailing_diamond = ""
-  template = "Rust {{ .Full }} "
-  foreground = "p:font-dark"
-  background = "p:lang-rust"
+	[[blocks.segments]]
+	type = "rust"
+	style = "diamond"
+	leading_diamond = "\ue0b6"
+	trailing_diamond = ""
+	template = "Rust {{ .Full }} "
+	foreground = "p:font-dark"
+	background = "p:lang-rust"
