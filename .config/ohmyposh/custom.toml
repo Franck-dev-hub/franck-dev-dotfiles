@@ -19,6 +19,8 @@ git-untrack = "#9DA5B4"
 git-ahead   = "#00B7C3"
 git-pull    = "#8E7CC3"
 docker      = "#1D63ED"
+docker-up   = "#66EA96"
+docker-down = "#EA6671"
 lang-python = "#3572A5"
 lang-php    = "#787CB5"
 lang-lua    = "#000080"
@@ -150,7 +152,7 @@ alignment = "left"
 			[blocks.segments.properties]
 			always_enabled = true
 
-# ----- Docker (running/stopped/down for the compose project in $PWD) -----
+# ----- Docker (running / down for the compose project in $PWD) -----
 	[[blocks.segments]]
 		type = "text"
 		style = "plain"

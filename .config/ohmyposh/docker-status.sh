@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Docker compose status (running/stopped/down) for the current project, used by
+# Docker compose status (running/down) for the current project, used by
 # oh-my-posh's set_poshcontext hook via POSH_DOCKER. Cached briefly because
 # `docker compose` calls the daemon and is too slow to run on every keystroke.
 
@@ -38,12 +38,13 @@ if [ "${services_total:-0}" -eq 0 ]; then
     exit 0
 fi
 
-states=$(docker compose --project-directory "$root" ps -a --format '{{.State}}' 2>/dev/null)
-created=$(printf '%s\n' "$states" | grep -c .)
-running=$(printf '%s\n' "$states" | grep -c '^running$')
-stopped=$((created - running))
-down=$((services_total - created))
+running=$(docker compose --project-directory "$root" ps --status running -q 2>/dev/null | grep -c .)
+down=$((services_total - running))
 [ "$down" -lt 0 ] && down=0
 
-output=$(printf '<p:docker>%s</>/<p:cmd-fail>%s</>/<p:cmd-fail>%s</>' "$running" "$stopped" "$down")
+output=""
+[ "$running" -gt 0 ] && output="${output}<p:docker-up>↑${running}</>"
+[ "$down" -gt 0 ] && output="${output}<p:docker-down>↓${down}</>"
+[ -n "$output" ] && output="${output}"
+
 printf '%s' "$output" | tee "$cache_file"
