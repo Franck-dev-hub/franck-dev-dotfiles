@@ -63,8 +63,8 @@ alias ssa="semistandard *.js"
 alias ssaf="semistandard --fix"
 
 # ===================== Python =====================
-alias pcheck='f() { flake8 "$1" && ruff check "$1"; }; f'
-alias pformat='f() { ruff format "$1" && ruff check "$1"; }; f'
+alias pcheck='f() { uv run flake8 "$1" && uv run ruff check "$1"; }; f'
+alias pformat='f() { uv run ruff format "$1" && uv run ruff check "$1"; }; f'
 alias pybang="echo '#\!/usr/bin/env python3' | tee -ii *.py"
 alias uv-venv="uv init && uv venv .venv && source .venv/bin/activate"
 alias uv-req="uv pip compile pyproject.toml -o requirements.txt"
