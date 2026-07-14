@@ -6,14 +6,31 @@
 CACHE_TTL=5
 CACHE_DIR="$HOME/.cache/oh-my-posh/docker-status"
 
+has_compose_file() {
+    local d="$1"
+    [ -d "$d" ] || return 1
+    local f
+    for f in "$d"/compose.yaml "$d"/compose.yml "$d"/docker-compose.yaml "$d"/docker-compose.yml; do
+        [ -f "$f" ] && return 0
+    done
+    # env-specific variants: compose.dev.yaml, compose.preprod.yaml, ...
+    for f in "$d"/compose.*.y*ml "$d"/docker-compose.*.y*ml; do
+        [ -f "$f" ] && return 0
+    done
+    return 1
+}
+
 dir="$PWD"
 root=""
 for _ in 1 2 3 4 5 6 7 8; do
-    if [ -f "$dir/compose.yaml" ] || [ -f "$dir/compose.yml" ] ||
-       [ -f "$dir/docker-compose.yaml" ] || [ -f "$dir/docker-compose.yml" ]; then
-        root="$dir"
-        break
-    fi
+    for sub in "" docker .docker deploy; do
+        candidate="$dir"
+        [ -n "$sub" ] && candidate="$dir/$sub"
+        if has_compose_file "$candidate"; then
+            root="$candidate"
+            break 2
+        fi
+    done
     [ "$dir" = "/" ] && break
     dir="$(dirname "$dir")"
 done
@@ -32,19 +49,19 @@ if [ -f "$cache_file" ]; then
     fi
 fi
 
-services_total=$(docker compose --project-directory "$root" config --services 2>/dev/null | grep -c .)
+services_total=$(cd "$root" && docker compose config --services 2>/dev/null | grep -c .)
 if [ "${services_total:-0}" -eq 0 ]; then
     printf '' | tee "$cache_file" >/dev/null
     exit 0
 fi
 
-running=$(docker compose --project-directory "$root" ps --status running -q 2>/dev/null | grep -c .)
+running=$(cd "$root" && docker compose ps --status running -q 2>/dev/null | grep -c .)
 down=$((services_total - running))
 [ "$down" -lt 0 ] && down=0
 
 output=""
 [ "$running" -gt 0 ] && output="${output}<p:docker-up>↑${running}</>"
 [ "$down" -gt 0 ] && output="${output}<p:docker-down>↓${down}</>"
-[ -n "$output" ] && output="${output}"
+[ -n "$output" ] && output="${output} "
 
 printf '%s' "$output" | tee "$cache_file"
