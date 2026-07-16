@@ -47,6 +47,7 @@ alias dcb="dc build"
 alias dcu="dc up"
 alias dcr="dc restart"
 alias dcs="dc ps"
+alias dcss="dcs --services"
 alias dcl="dc logs -f --tail=50"
 
 # ===================== C =====================
