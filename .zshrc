@@ -13,6 +13,9 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
+# ===================== Set audio output volume (ear protection) =====================
+# wpctl set-volume @DEFAULT_AUDIO_SINK@ 60%
+
 # ===================== Prompt =====================
 setopt transient_rprompt
 eval "$(~/.local/bin/oh-my-posh init zsh --config ~/.config/ohmyposh/custom.toml)"
@@ -83,6 +86,7 @@ if [ -f ~/.zsh_aliases ]; then
     source ~/.zsh_aliases
 fi
 
+# ===================== Nvm =====================
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
