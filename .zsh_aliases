@@ -23,6 +23,7 @@ alias nano="vim"
 alias gs="clear && git status"
 alias ga="git add"
 alias gc="git commit"
+alias gci="~/.local/share/scripts/commit.sh"
 alias gcm="git commit -m"
 alias gac="git add . && git commit"
 alias gacm="git add . && git commit -m"
@@ -85,49 +86,14 @@ alias cloclo="claude -c"
 alias zshrc="n ${HOME}/.zshrc && source ${HOME}/.zshrc"
 alias zsh_aliases="n ${HOME}/.zsh_aliases && source ${HOME}/.zshrc"
 
+# ===================== Functions =====================
+alias mkfile="~/.local/share/scripts/mkfile.sh"
+alias sylius_cve="~/.local/share/scripts/sylius_cve.py"
+alias sylius_version="~/.local/share/scripts/sylius_version.sh"
+
 # ===================== System tools =====================
 alias ff="fastfetch"
 alias ffm="fastfetch --config ${HOME}/.config/fastfetch/start.jsonc"
 alias lov="love ./"
 # Use : sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# ===================== Fonctions =====================
-# Create a file and the folder path
-mkfile() {
-	for file in "$@"; do
-		mkdir -p "$(dirname "$file")" && touch "$file"
-	done
-}
-
-# Grep usage of a sylius package
-grep-sylius-packages() {
-	local package=$1
-
-	echo "----------------------------------------"
-	echo "Package" $(composer show "$package" | grep versions)
-
-	echo "----------------------------------------"
-	local files
-	files=$(grep -r "$package" src/ --include="*.php" -l)
-
-	if [ -z "$files" ]; then
-		echo "No package usage found"
-		echo "----------------------------------------"
-	else
-		echo "Where package is used (files)"
-		echo "$files"
-
-		echo "----------------------------------------"
-		echo "Get all code related (use statements)"
-		local uses
-		uses=$(grep -r "use Sylius" src/ --include="*.php" | grep -i "$package")
-
-		if [ -z "$uses" ]; then
-			echo "No use statement found"
-			echo "----------------------------------------"
-		else
-			echo "$uses"
-		fi
-	fi
-}
