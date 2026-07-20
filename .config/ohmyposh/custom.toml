@@ -33,9 +33,9 @@ time-fg     = "#FFFFFF"
 trans       = "#B373FD"
 
 # ========== Transient mode ==========
-[transient_prompt]
-template = "➜  "
-foreground = "p:trans"
+#[transient_prompt]
+#template = "➜  "
+#foreground = "p:trans"
 
 # ========== Auto update ==========
 [upgrade]
