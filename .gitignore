@@ -58,3 +58,7 @@ hyprpaper.conf
 # Waybar
 !.config/waybar/
 !.config/waybar/**
+
+# Yazi
+!.config/yazi/
+!.config/yazi/**
