@@ -90,6 +90,7 @@ alias zsh_aliases="n ${HOME}/.zsh_aliases && source ${HOME}/.zshrc"
 alias mkfile="~/.local/share/scripts/mkfile.sh"
 alias sylius_cve="~/.local/share/scripts/sylius_cve.py"
 alias sylius_version="~/.local/share/scripts/sylius_version.sh"
+alias sylius_dpv="~/.local/share/scripts/dependency_version.sh"
 
 # ===================== System tools =====================
 alias ff="fastfetch"
