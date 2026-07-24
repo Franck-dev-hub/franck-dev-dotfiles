@@ -70,9 +70,9 @@ keybind = alt+shift+k=resize_split:down,5
 
 # ----- Tabs -----
 # Tab management (ctrl + shift + arrow)
-keybind = ctrl+shift+up=new_tab
-keybind = ctrl+shift+down=close_tab
+keybind = ctrl+up=new_tab
+keybind = ctrl+down=close_tab
 
 # Tab navigation (alt + shift + arrow)
-keybind = shift+left=previous_tab
-keybind = shift+right=next_tab
+keybind = ctrl+left=previous_tab
+keybind = ctrl+right=next_tab
