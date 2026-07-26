@@ -64,6 +64,7 @@ zstyle ':completion:*' verbose yes
 # ===================== Path =====================
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/opt/gbdk/bin"
+export PATH=~/.npm-global/bin:$PATH
 
 # ===================== Nvim =====================
 export VISUAL=nvim
