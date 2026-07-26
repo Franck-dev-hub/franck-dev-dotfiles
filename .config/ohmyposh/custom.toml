@@ -125,7 +125,7 @@ alignment = "left"
 	type = "git"
 	style = "plain"
 	display_mode = "context"
-	template = "{{ if .HEAD }}<p:git>git(</><p:git-branch>{{ .HEAD }}</><p:git>)</>{{ if gt .Working.Added 0 }}<p:git-add> +{{ .Working.Added }}</>{{ end }}{{ if gt .Working.Deleted 0 }}<p:git-rm> -{{ .Working.Deleted }}</>{{ end }}{{ if gt .Working.Modified 0 }}<p:git-chg> !{{ .Working.Modified }}</>{{ end }}{{ if gt .Working.Untracked 0 }}<p:git-untrack> ?{{ .Working.Untracked }}</>{{ end }}{{ if gt .Ahead 0 }}<p:git-ahead> ↑{{ .Ahead }}</>{{ end }}{{ if gt .Behind 0 }}<p:git-pull> ↓{{ .Behind }}</>{{ end }}{{ end }}"
+	template = "{{ if .HEAD }}<p:git>git(</><p:git-branch>{{ if regexMatch \"^[^/]+/[0-9]+\" .HEAD }}{{ regexReplaceAll \"(^[^/]+/[0-9]+).*\" .HEAD \"$1[...]\" }}{{ else }}{{ .HEAD }}{{ end }}</><p:git>)</>{{ if gt .Working.Added 0 }}<p:git-add> +{{ .Working.Added }}</>{{ end }}{{ if gt .Working.Deleted 0 }}<p:git-rm> -{{ .Working.Deleted }}</>{{ end }}{{ if gt .Working.Modified 0 }}<p:git-chg> !{{ .Working.Modified }}</>{{ end }}{{ if gt .Working.Untracked 0 }}<p:git-untrack> ?{{ .Working.Untracked }}</>{{ end }}{{ if gt .Ahead 0 }}<p:git-ahead> ↑{{ .Ahead }}</>{{ end }}{{ if gt .Behind 0 }}<p:git-pull> ↓{{ .Behind }}</>{{ end }}{{ end }}"
 		[blocks.segments.properties]
 		fetch_status = true
 		fetch_upstream_icon = false
