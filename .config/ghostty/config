@@ -50,29 +50,33 @@ keybind = ctrl+c=copy_to_clipboard
 keybind = ctrl+v=paste_from_clipboard
 
 # ----- Windows -----
-# Window creation (ctrl + shift + ijkl)
+# Window creation
 keybind = ctrl+shift+h=new_split:right
 keybind = ctrl+shift+v=new_split:down
 
-# Window navigation (ctrl + shift + arrow)
+# Window navigation
 keybind = ctrl+shift+j=goto_split:left
 keybind = ctrl+shift+l=goto_split:right
 
-# Window management (ctrl + shift + cmd)
+# Window management
 keybind = ctrl+shift+k=close_surface
 keybind = ctrl+shift+i=equalize_splits
 
-# Window resize(alt + shift + arrow)
+# Window resize
 keybind = alt+shift+j=resize_split:left,5
 keybind = alt+shift+l=resize_split:right,5
 keybind = alt+shift+i=resize_split:up,5
 keybind = alt+shift+k=resize_split:down,5
 
 # ----- Tabs -----
-# Tab management (ctrl + shift + arrow)
+# Tab management
 keybind = ctrl+up=new_tab
 keybind = ctrl+down=close_tab
 
-# Tab navigation (alt + shift + arrow)
+# Tab navigation
 keybind = ctrl+left=previous_tab
 keybind = ctrl+right=next_tab
+
+# Tab reordering
+keybind = ctrl+shift+left=move_tab:-1
+keybind = ctrl+shift+right=move_tab:1
