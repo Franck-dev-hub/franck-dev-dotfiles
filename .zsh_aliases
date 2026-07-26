@@ -78,9 +78,14 @@ alias sfdsuf='symfony console doctrine:schema:update --force'
 
 # ===================== Sylius =====================
 alias syvers="php -v | grep PHP && echo '----------\nSymfony' && composer show symfony/framework-bundle | grep versions && echo '----------\nSylius' && composer show sylius/sylius | grep versions"
+alias sylius_cve="~/.local/share/scripts/sylius_cve.py"
+alias sylius_version="~/.local/share/scripts/sylius_version.sh"
+alias sylius_dpv="~/.local/share/scripts/dependency_version.sh"
 
 # ===================== LLM =====================
 alias cloclo="claude -c"
+alias openc="opencode"
+alias opencc="opencode -c"
 
 # ===================== Configs =====================
 alias zshrc="n ${HOME}/.zshrc && source ${HOME}/.zshrc"
@@ -88,9 +93,7 @@ alias zsh_aliases="n ${HOME}/.zsh_aliases && source ${HOME}/.zshrc"
 
 # ===================== Functions =====================
 alias mkfile="~/.local/share/scripts/mkfile.sh"
-alias sylius_cve="~/.local/share/scripts/sylius_cve.py"
-alias sylius_version="~/.local/share/scripts/sylius_version.sh"
-alias sylius_dpv="~/.local/share/scripts/dependency_version.sh"
+alias app-img="~/.local/share/scripts/app-img-manager.sh"
 
 # ===================== System tools =====================
 alias ff="fastfetch"
