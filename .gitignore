@@ -49,8 +49,12 @@ hyprpaper.conf
 !.config/ohmyposh/**
 
 # Opencode
-!.opencode/
-!.opencode/AGENTS.md
+!.config/opencode/
+!.config/opencode/themes/
+!.config/opencode/themes/theme.json
+!.config/opencode/AGENTS.md
+!.config/opencode/opencode.jsonc
+!.config/opencode/tui.json
 
 # Rofi
 !.config/rofi/
