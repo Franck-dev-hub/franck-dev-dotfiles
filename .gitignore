@@ -48,6 +48,10 @@ hyprpaper.conf
 !.config/ohmyposh/
 !.config/ohmyposh/**
 
+# Opencode
+!.opencode/
+!.opencode/AGENTS.md
+
 # Rofi
 !.config/rofi/
 !.config/rofi/**
