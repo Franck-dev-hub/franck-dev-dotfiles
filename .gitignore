@@ -60,9 +60,6 @@ hyprpaper.conf
 !.config/rofi/
 !.config/rofi/**
 
-# Sublime text
-!.config/sublime-text/.gitignore
-
 # Waybar
 !.config/waybar/
 !.config/waybar/**
