@@ -49,4 +49,4 @@ Never commit secrets, keys, or credentials.
 Never run destructive commands (rm -rf, force push, hard reset, drop table) without explicit confirmation.
 
 # System
-- OS: NobaraOS (Fedora-based)
+- OS: NobaraOS (Fedora-based) or Ubuntu Gnome depending on the computer I'm on
