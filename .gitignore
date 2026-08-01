@@ -53,7 +53,7 @@ hyprpaper.conf
 !.config/opencode/themes/
 !.config/opencode/themes/theme.json
 !.config/opencode/AGENTS.md
-!.config/opencode/opencode.jsonc
+!.config/opencode/opencode.json
 !.config/opencode/tui.json
 
 # Rofi
