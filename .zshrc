@@ -97,3 +97,26 @@ function osc7_cwd() {
     printf '\033]7;file://%s%s\033\\' "$HOSTNAME" "$PWD"
 }
 precmd_functions+=(osc7_cwd)
+
+# ===================== SSH Agent & Keyring =====================
+if [ -x /usr/bin/ksshaskpass ]; then
+    # KDE Plasma (KWallet)
+    export SSH_ASKPASS="/usr/bin/ksshaskpass"
+elif [ -x /usr/bin/ssh-askpass ]; then
+    # GNOME (Gnome Keyring)
+    export SSH_ASKPASS="/usr/bin/ssh-askpass"
+elif [ -x /usr/libexec/openssh/gnome-ssh-askpass ]; then
+    export SSH_ASKPASS="/usr/libexec/openssh/gnome-ssh-askpass"
+fi
+
+export SSH_ASKPASS_REQUIRE="prefer"
+
+# Start ssh agent if not active
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    eval "$(ssh-agent -s)" > /dev/null
+fi
+
+# Auto load key if not in agent
+if ssh-add -l 2>&1 | grep -q "The agent has no identities"; then
+    ssh-add -k ~/.ssh/id_ed25519 </dev/null &>/dev/null
+fi
