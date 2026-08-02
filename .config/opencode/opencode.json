@@ -3,21 +3,21 @@
   "model": "openrouter/deepseek/deepseek-v4-flash:free",
   "plugin": ["opencode-claude-code-bridge"],
   "permission": {
-    "bash": {
-    "cat *": "allow",
-    "docker ps": "allow",
     "edit": "ask",
-    "find *": "allow",
-    "git diff": "allow",
-    "git status": "allow",
-    "gh issue view *": "allow",
-    "grep *": "allow",
-    "ls *": "allow",
-    "* --help": "allow",
-    "* --version": "allow",
-    "* -h": "allow",
-    "* -v": "allow",
-    "*": "ask"
+    "bash": {
+      "*": "ask",
+      "cat *": "allow",
+      "docker ps": "allow",
+      "find *": "allow",
+      "git diff": "allow",
+      "git status": "allow",
+      "gh issue view *": "allow",
+      "grep *": "allow",
+      "ls *": "allow",
+      "* --help": "allow",
+      "* --version": "allow",
+      "* -h": "allow",
+      "* -v": "allow"
     }
   }
 }
