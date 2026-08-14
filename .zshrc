@@ -61,6 +61,15 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' verbose yes
 
+# Lazy-load Angular CLI completion on first use
+if command -v ng >/dev/null 2>&1; then
+    ng() {
+        unfunction ng
+        source <(ng completion script)
+        command ng "$@"
+    }
+fi
+
 # ===================== Path =====================
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/opt/gbdk/bin"
