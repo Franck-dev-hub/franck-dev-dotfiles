@@ -21,12 +21,14 @@ has_compose_file() {
 }
 
 dir="$PWD"
+project=""
 root=""
 for _ in 1 2 3 4 5 6 7 8; do
     for sub in "" docker .docker deploy; do
         candidate="$dir"
         [ -n "$sub" ] && candidate="$dir/$sub"
         if has_compose_file "$candidate"; then
+            project="$dir"
             root="$candidate"
             break 2
         fi
@@ -36,6 +38,14 @@ for _ in 1 2 3 4 5 6 7 8; do
 done
 
 [ -z "$root" ] && exit 0
+
+# Find the actual compose file so we can pass it with -f; running docker
+# compose from $project (not $root) lets it auto-load a project-root .env.
+compose_file=""
+for f in "$root"/compose.yaml "$root"/compose.yml "$root"/docker-compose.yaml "$root"/docker-compose.yml "$root"/compose.*.y*ml "$root"/docker-compose.*.y*ml; do
+    [ -f "$f" ] && compose_file="$f" && break
+done
+[ -z "$compose_file" ] && exit 0
 
 mkdir -p "$CACHE_DIR"
 cache_file="$CACHE_DIR/$(printf '%s' "$root" | md5sum | cut -d' ' -f1)"
@@ -49,13 +59,13 @@ if [ -f "$cache_file" ]; then
     fi
 fi
 
-services_total=$(cd "$root" && docker compose config --services 2>/dev/null | grep -c .)
+services_total=$(docker compose -f "$compose_file" --project-directory "$project" config --services 2>/dev/null | grep -c .)
 if [ "${services_total:-0}" -eq 0 ]; then
     printf '' | tee "$cache_file" >/dev/null
     exit 0
 fi
 
-running=$(cd "$root" && docker compose ps --status running -q 2>/dev/null | grep -c .)
+running=$(docker compose -f "$compose_file" --project-directory "$project" ps --status running -q 2>/dev/null | grep -c .)
 down=$((services_total - running))
 [ "$down" -lt 0 ] && down=0
 
