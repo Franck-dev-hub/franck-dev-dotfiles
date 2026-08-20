@@ -43,6 +43,10 @@ Never assume a library is available. Check imports, package.json, pom.xml, or Ca
 
 Do not generate or guess URLs. Use only URLs I provide or that you find in the codebase.
 
+# Git
+
+When creating a commit, use the commit-message convention: one line, `[Type] Description`, max ~70 characters, starting with a verb. Pick Type from Feature/Fix/Hotfix/Refactor/Doc/Test/Style/Release.
+
 # Safety
 
 Never commit secrets, keys, or credentials.
