@@ -1,0 +1,25 @@
+{
+"$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+"logo": {"source": "$HOME/.config/fastfetch/void.txt", "padding": {"top": 0, "right": 0}},
+"display": {
+	"separator": "   ",
+	"color": {"separator": "#888888", "title": "#00ffff"}
+},
+"modules": [
+{"type": "custom", "format": "\u001b[90m┌─────Hardware───────────────────────────────────────┐"},
+{"type": "cpu",                 "key": "├\uf4bc CPU      ", "keyColor": "green" },
+{"type": "cpuCache",            "key": "├\uf4bc CPU Cache", "keyColor": "green" },
+{"type": "gpu",                 "key": "├\uec19 GPU      ", "keyColor": "green" },
+{"type": "memory",              "key": "├\ue266 RAM      ", "keyColor": "green" },
+{"type": "swap",                "key": "├\uebcb SWAP     ", "keyColor": "green" },
+{"type": "physicalMemory",      "key": "├\uefc5 Memory   ", "keyColor": "green" },
+{"type": "disk",                "key": "├\uf0c7 Disk     ", "keyColor": "green" },
+{"type": "diskIo",              "key": "├\uf0c7 DiskIo   ", "keyColor": "green" },
+{"type": "btrfs",               "key": "├\uf1c0 Btrfs    ", "keyColor": "green" },
+{"type": "zpool",               "key": "├\udb82\ude06 Zpool    ", "keyColor": "green" },
+{"type": "brightness",          "key": "├\udb80\udcdf Bright   ", "keyColor": "green" },
+{"type": "powerAdapter",        "key": "├\udb81\udea5 Power    ", "keyColor": "green" },
+{"type": "battery",             "key": "├\udb84\udea3 Battery  ", "keyColor": "green" },
+{"type": "custom", "format": "\u001b[90m└────────────────────────────────────────────────────┘"},
+]
+}
