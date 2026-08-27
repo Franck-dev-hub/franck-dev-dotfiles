@@ -1,7 +1,19 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "openrouter/deepseek/deepseek-v4-flash:free",
+  "model": "ollama/qwen2.5-coder:3b",
   "plugin": ["opencode-claude-code-bridge"],
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://127.0.0.1:11434/v1"
+      },
+      "models": {
+        "qwen2.5-coder:3b": {},
+        "qwen2.5:3b": {}
+      }
+    }
+  },
   "permission": {
     "edit": "ask",
     "bash": {
