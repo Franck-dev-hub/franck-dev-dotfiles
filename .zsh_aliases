@@ -41,6 +41,7 @@ alias glpr="git push --set-upstream origin HEAD -o merge_request.create -o merge
 alias glclear='git checkout develop && git pull --prune && git fetch --prune'
 alias grebase="rebase --rebase-merges"
 alias gtags="git tag | sort -V"
+alias gremote="git fetch && git pull"
 
 # ===================== Docker Compose =====================
 alias docker-compose="docker compose"
