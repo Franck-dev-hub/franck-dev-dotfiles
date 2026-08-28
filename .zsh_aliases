@@ -8,7 +8,7 @@ alias lls="ls -Alh --total-size"
 alias grep="grep --color=auto"
 # ----- cd -----
 alias cdobs="cd ~/Nextcloud/Franck/Obsidian"
-alias cdemagma="cd ~/Documents/Emagma"
+alias cdemag="cd ~/Documents/Emagma"
 alias cdperso="cd ~/Documents/Perso"
 
 # ===================== Editor =====================
