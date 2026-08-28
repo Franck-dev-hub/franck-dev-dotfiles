@@ -38,9 +38,9 @@ alias gd="git diff"
 alias gds="git diff --stat"
 alias ghpr="git push --set-upstream origin HEAD && gh pr create --draft --fill"
 alias glpr="git push --set-upstream origin HEAD -o merge_request.create -o merge_request.draft"
-alias glsdev="! git checkout develop && git pull --prune && git fetch --prune && git branch -d @{-1}"
+alias glclear='git checkout develop && git pull --prune && git fetch --prune'
 alias grebase="rebase --rebase-merges"
-alias gtags="!git tag | sort -V"
+alias gtags="git tag | sort -V"
 
 # ===================== Docker Compose =====================
 alias docker-compose="docker compose"
