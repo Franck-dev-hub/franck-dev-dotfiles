@@ -14,7 +14,7 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
 # ===================== Set audio output volume (ear protection) =====================
-# wpctl set-volume @DEFAULT_AUDIO_SINK@ 60%
+wpctl set-volume @DEFAULT_AUDIO_SINK@ 60%
 
 # ===================== Prompt =====================
 setopt transient_rprompt
@@ -85,6 +85,8 @@ if [ -f ~/.env ]; then
     source ~/.env
     set +a
 fi
+typeset -U path
+path=($path)
 
 # ===================== Colors =====================
 if [ -x /usr/bin/dircolors ]; then
@@ -129,3 +131,4 @@ fi
 if ssh-add -l 2>&1 | grep -q "The agent has no identities"; then
     ssh-add -k ~/.ssh/id_ed25519 </dev/null &>/dev/null
 fi
+true
