@@ -103,39 +103,13 @@ fi
 [[ $pct -gt 100 ]] && pct=100
 [[ $pct -lt 0 ]] && pct=0
 
-# ---- 20-block gradient context bar ----
-# Filled blocks: green(0,200,80) -> yellow(220,200,0) across blocks 0-9,
-#                yellow(220,200,0) -> red(220,40,20) across blocks 10-19.
-# Coloring is positional (gradient), independent of usage level.
-# Empty blocks: dark gray (60,60,60).
-filled=$(( (pct * 20 + 50) / 100 ))
-[[ $filled -gt 20 ]] && filled=20
-[[ $filled -lt 0 ]] && filled=0
-
-bar=""
-for ((i = 0; i < 20; i++)); do
-    if (( i < filled )); then
-        if (( i < 10 )); then
-            r=$(( 0   + 220 * i / 9 ))
-            g=200
-            b=$(( 80  - 80  * i / 9 ))
-        else
-            j=$(( i - 10 ))
-            r=220
-            g=$(( 200 - 160 * j / 9 ))
-            b=$(( 0   + 20  * j / 9 ))
-        fi
-        bar+="$(rgb "$r" "$g" "$b")█${C_RESET}"
-    else
-        bar+="$(rgb 60 60 60)█${C_RESET}"
-    fi
-done
-
 # ---- Percentage color by usage level (green -> yellow -> red) ----
 pct_color() {
-    if   (( $1 < 50 )); then rgb 60 200 90
-    elif (( $1 < 80 )); then rgb 220 200 0
-    else                      rgb 220 40 20
+    if   (( $1 < 15 )); then rgb 60 140 230   # blue
+    elif (( $1 < 40 )); then rgb 60 200 90    # green
+    elif (( $1 < 60 )); then rgb 220 200 0    # yellow
+    elif (( $1 < 85 )); then rgb 230 140 0    # orange
+    else                      rgb 220 40 20   # red
     fi
 }
 C_PCT=$(pct_color "$pct")
@@ -173,22 +147,28 @@ if [[ -n "$rl_7d_pct" ]]; then
 fi
 
 # ---- Assemble segments, skipping empty ones, joined by dim-gray pipes ----
-segments=()
-segments+=("${C_REPO}${repo_name}${C_RESET}")
-[[ -n "$branch" ]] && segments+=("${C_BRANCH}${branch}${C_RESET}")
-segments+=("${bar} ${C_PCT}${pct}%${C_RESET}")
+line1_segments=()
+line1_segments+=("${C_REPO}${repo_name}${C_RESET}")
+[[ -n "$branch" ]] && line1_segments+=("${C_BRANCH}${branch}${C_RESET}")
+line1_segments+=("${C_MODEL}${model_name}${C_RESET}")
+[[ -n "$effort_level" ]] && line1_segments+=("${C_EFFORT}${effort_level}${C_RESET}")
+
+line2_segments=()
+line2_segments+=("${C_PCT}${pct}%${C_RESET}")
 if [[ "$added" -gt 0 || "$removed" -gt 0 ]]; then
-    segments+=("${C_ADD}+${added}${C_RESET}${C_SEP}/${C_RESET}${C_REMOVE}-${removed}${C_RESET}")
+    line2_segments+=("${C_ADD}+${added}${C_RESET}${C_SEP}/${C_RESET}${C_REMOVE}-${removed}${C_RESET}")
 fi
-[[ -n "$rl_5h_segment" ]] && segments+=("$rl_5h_segment")
-[[ -n "$rl_7d_segment" ]] && segments+=("$rl_7d_segment")
-segments+=("${C_MODEL}${model_name}${C_RESET}")
-[[ -n "$effort_level" ]] && segments+=("${C_EFFORT}${effort_level}${C_RESET}")
+[[ -n "$rl_5h_segment" ]] && line2_segments+=("$rl_5h_segment")
+[[ -n "$rl_7d_segment" ]] && line2_segments+=("$rl_7d_segment")
 
-output=""
-for i in "${!segments[@]}"; do
-    [[ $i -gt 0 ]] && output+="$SEP"
-    output+="${segments[$i]}"
-done
+join() {
+    local -n arr=$1
+    local out=""
+    for i in "${!arr[@]}"; do
+        [[ $i -gt 0 ]] && out+="$SEP"
+        out+="${arr[$i]}"
+    done
+    printf '%s' "$out"
+}
 
-printf '%b\n' "$output"
+printf '%b\n%b\n' "$(join line1_segments)" "$(join line2_segments)"
