@@ -8,7 +8,7 @@ alias lls="ls -Alh --total-size"
 alias grep="grep --color=auto"
 # ----- cd -----
 alias cdobs="cd ~/Nextcloud/Franck/Obsidian"
-alias cdemag="cd ~/Documents/Emagma"
+alias cdproj="cd ~/projects"
 alias cdperso="cd ~/Documents/Perso"
 
 # ===================== Editor =====================
@@ -20,7 +20,7 @@ alias vim="nvim"
 alias nano="vim"
 
 # ===================== Git =====================
-alias gs="clear && git status"
+alias gs="git status"
 alias gss="git show --stat"
 alias ga="git add"
 alias gc="git commit"
