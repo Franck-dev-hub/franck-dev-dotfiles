@@ -94,6 +94,7 @@ alias sylius_dpv="~/.local/share/scripts/dependency_version.sh"
 alias cloclo="claude -c"
 alias openc="opencode"
 alias opencc="opencode -c"
+alias dshupdate="~/.local/share/scripts/dsh-sync-models.sh"
 
 # ===================== Configs =====================
 alias zshrc="n ${HOME}/.zshrc && source ${HOME}/.zshrc"
