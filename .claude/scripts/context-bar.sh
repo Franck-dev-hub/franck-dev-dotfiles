@@ -32,17 +32,6 @@ if [[ -n "$cwd" && -d "$cwd" ]]; then
     branch=$(git -C "$cwd" --no-optional-locks branch --show-current 2>/dev/null)
 fi
 
-# ---- Code velocity: uncommitted churn vs HEAD ----
-added=0
-removed=0
-if [[ -n "$branch" ]]; then
-    shortstat=$(git -C "$cwd" --no-optional-locks diff --shortstat HEAD 2>/dev/null)
-    added=$(echo "$shortstat" | grep -oE '[0-9]+ insertion' | grep -oE '[0-9]+')
-    removed=$(echo "$shortstat" | grep -oE '[0-9]+ deletion' | grep -oE '[0-9]+')
-    [[ -z "$added" ]] && added=0
-    [[ -z "$removed" ]] && removed=0
-fi
-
 # ---- 24-bit truecolor helpers ----
 rgb()   { printf '\033[38;2;%d;%d;%dm' "$1" "$2" "$3"; }
 bold()  { printf '\033[1m'; }
@@ -155,9 +144,6 @@ line1_segments+=("${C_MODEL}${model_name}${C_RESET}")
 
 line2_segments=()
 line2_segments+=("${C_PCT}${pct}%${C_RESET}")
-if [[ "$added" -gt 0 || "$removed" -gt 0 ]]; then
-    line2_segments+=("${C_ADD}+${added}${C_RESET}${C_SEP}/${C_RESET}${C_REMOVE}-${removed}${C_RESET}")
-fi
 [[ -n "$rl_5h_segment" ]] && line2_segments+=("$rl_5h_segment")
 [[ -n "$rl_7d_segment" ]] && line2_segments+=("$rl_7d_segment")
 
