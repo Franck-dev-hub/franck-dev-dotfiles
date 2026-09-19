@@ -20,6 +20,7 @@
 
 # Claude code
 !.claude/
+!.claude/CLAUDE.md
 !.claude/scripts/
 !.claude/scripts/context-bar.sh
 
