@@ -69,9 +69,4 @@ running=$(docker compose -f "$compose_file" --project-directory "$project" ps --
 down=$((services_total - running))
 [ "$down" -lt 0 ] && down=0
 
-output=""
-[ "$running" -gt 0 ] && output="${output}<p:docker-up>↑${running}</>"
-[ "$down" -gt 0 ] && output="${output}<p:docker-down>↓${down}</>"
-[ -n "$output" ] && output="${output} "
-
-printf '%s' "$output" | tee "$cache_file"
+printf '%s %s' "$running" "$down" | tee "$cache_file"

@@ -22,7 +22,9 @@ eval "$(~/.local/bin/oh-my-posh init zsh --config ~/.config/ohmyposh/custom.toml
 
 # Populate POSH_DOCKER (running/stopped/down counts for ohmyposh)
 function set_poshcontext() {
-    export POSH_DOCKER="$(~/.config/ohmyposh/docker-status.sh 2>/dev/null)"
+    read -r POSH_DOCKER_UP POSH_DOCKER_DOWN <<< "$(~/.config/ohmyposh/docker-status.sh 2>/dev/null)"
+    export POSH_DOCKER_UP POSH_DOCKER_DOWN
+    export POSH_GIT_PENDING_PUSH="$(~/.config/ohmyposh/git-pending-push.sh 2>/dev/null)"
 }
 
 # ===================== History =====================

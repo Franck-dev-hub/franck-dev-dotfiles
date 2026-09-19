@@ -132,6 +132,13 @@ alignment = "left"
 		branch_icon = ""
 		max_depth = 3
 
+# ----- Commits pending push -----
+	[[blocks.segments]]
+	type = "text"
+	style = "plain"
+	foreground = "p:git-ahead"
+	template = "{{ if .Env.POSH_GIT_PENDING_PUSH }} ⇡{{ .Env.POSH_GIT_PENDING_PUSH }}{{ end }}"
+
 # ----- Git status (debug) -----
 #[[blocks.segments]]
 #type = "git"
@@ -156,7 +163,7 @@ alignment = "left"
 	[[blocks.segments]]
 		type = "text"
 		style = "plain"
-		template = " {{ if .Env.POSH_DOCKER }}{{ .Env.POSH_DOCKER }}{{ end }}"
+		template = " {{ if and .Env.POSH_DOCKER_UP (ne .Env.POSH_DOCKER_UP \"0\") }}<p:docker-up>↑{{ .Env.POSH_DOCKER_UP }}</>{{ end }}{{ if and .Env.POSH_DOCKER_DOWN (ne .Env.POSH_DOCKER_DOWN \"0\") }}<p:docker-down>↓{{ .Env.POSH_DOCKER_DOWN }}</>{{ end }}"
 
 
 # ----- Last code success / fail -----
