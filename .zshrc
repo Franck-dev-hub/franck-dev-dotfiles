@@ -130,4 +130,16 @@ fi
 if ssh-add -l 2>&1 | grep -q "The agent has no identities"; then
     ssh-add -k ~/.ssh/id_ed25519 </dev/null &>/dev/null
 fi
+
+# ===================== Git fetch on repo entry =====================
+# Once per repo entry so the prompt's ↓ is fresh
+function _git_fetch_on_repo_enter() {
+    local toplevel
+    toplevel=$(git rev-parse --show-toplevel 2>/dev/null) || { _GIT_LAST_REPO=; return }
+    [[ $toplevel == $_GIT_LAST_REPO ]] && return
+    _GIT_LAST_REPO=$toplevel
+    GIT_TERMINAL_PROMPT=0 GIT_SSH_COMMAND="ssh -o BatchMode=yes" git fetch --quiet >/dev/null 2>&1 &!
+}
+chpwd_functions+=(_git_fetch_on_repo_enter)
+_git_fetch_on_repo_enter
 true
