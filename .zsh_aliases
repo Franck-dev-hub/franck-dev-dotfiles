@@ -41,19 +41,20 @@ alias grebase="rebase --rebase-merges"
 alias gtags="git tag | sort -V"
 alias gremote="git fetch && git pull"
 # ----- Github -----
-alias ghpr="git push --set-upstream origin HEAD && gh pr create --draft --fill"
+alias ghpr="git push --set-upstream origin HEAD && gh pr create --draft --fill --assignee @me"
 ghprt() {
   git push --set-upstream origin HEAD || return
   gh pr view >/dev/null 2>&1 && return
-  gh pr create --draft --title "$1" --body ""
+  gh pr create --draft --title "$1" --body "" --assignee @me
 }
 # ----- Gitlab -----
-alias glpr="git push --set-upstream origin HEAD -o merge_request.create -o merge_request.draft"
+alias glpr='git push --set-upstream origin HEAD -o merge_request.create -o merge_request.draft -o merge_request.assign="$(git config gitlab.user)"'
 glprt() {
   git push --set-upstream origin HEAD \
     -o merge_request.create \
     -o merge_request.draft \
-    -o merge_request.title="$1"
+    -o merge_request.title="$1" \
+    -o merge_request.assign="$(git config gitlab.user)"
 }
 
 # ===================== Docker Compose =====================
