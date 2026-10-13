@@ -48,7 +48,13 @@ ghprt() {
   gh pr create --draft --title "$1" --body "" --assignee @me
 }
 # ----- Gitlab -----
-alias glpr='git push --set-upstream origin HEAD -o merge_request.create -o merge_request.draft -o merge_request.assign="$(git config gitlab.user)"'
+glpr() {
+  git push --set-upstream origin HEAD \
+    -o merge_request.create \
+    -o merge_request.draft \
+    -o merge_request.assign="$(git config gitlab.user)"
+}
+
 glprt() {
   git push --set-upstream origin HEAD \
     -o merge_request.create \
