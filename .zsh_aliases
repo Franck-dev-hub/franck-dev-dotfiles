@@ -64,6 +64,14 @@ glprt() {
   [[ -z $2 ]] || glab mr update "$(git branch --show-current)" --description "$2"
 }
 
+mr-preprod() {
+  git fetch -q --tags origin || return
+  local sha=$(glab mr view "$1" -F json | jq -r '.merge_commit_sha // empty')
+  [[ -z $sha ]] && { echo "!$1 pas mergée"; return 1; }
+  local tag=$(git tag --contains "$sha" --sort=creatordate | grep -m1 -- '-rc\.')
+  echo "${tag:-!$1 mergée, pas encore taggée}"
+}
+
 # ===================== Docker Compose =====================
 alias docker-compose="docker compose"
 alias dc="docker compose"
