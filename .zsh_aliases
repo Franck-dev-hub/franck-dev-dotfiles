@@ -72,6 +72,15 @@ mr-preprod() {
   echo "${tag:-!$1 mergée, pas encore taggée}"
 }
 
+tag-mrs() {
+  git fetch -q --tags origin || return
+  local to=${1:-$(git tag -l '*-rc.*' --sort=-creatordate | head -1)}
+  local from=$(git describe --tags --abbrev=0 --match '*-rc.*' "$to^") || return
+  echo "$from → $to"
+  git log --merges --grep='See merge request' --format='@@%n%b' "$from..$to" \
+    | awk '/^@@$/ { t = ""; next } "" == t && NF { t = $0; next } match($0, /![0-9]+$/) { printf "%-6s %s\n", substr($0, RSTART, RLENGTH), t }'
+}
+
 # ===================== Docker Compose =====================
 alias docker-compose="docker compose"
 alias dc="docker compose"
