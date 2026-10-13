@@ -60,7 +60,8 @@ glprt() {
     -o merge_request.create \
     -o merge_request.draft \
     -o merge_request.title="$1" \
-    -o merge_request.assign="$(git config gitlab.user)"
+    -o merge_request.assign="$(git config gitlab.user)" || return
+  [[ -z $2 ]] || glab mr update "$(git branch --show-current)" --description "$2"
 }
 
 # ===================== Docker Compose =====================
