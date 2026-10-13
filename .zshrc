@@ -97,6 +97,10 @@ if [ -f ~/.zsh_aliases ]; then
     source ~/.zsh_aliases
 fi
 
+if [ -f ~/.zsh_aliases_local ]; then
+    source ~/.zsh_aliases_local
+fi
+
 # ===================== Nvm =====================
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
