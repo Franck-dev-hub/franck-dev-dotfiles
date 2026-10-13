@@ -68,3 +68,5 @@ Run it from the repo, it reads the remote and the auth itself.
 Fall back to the GitLab MCP tools only when `glab` cannot express the query.
 
 @RTK.md
+
+@memory/MEMORY.md
